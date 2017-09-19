@@ -1,0 +1,10 @@
+Information donné lors de la première séance de lab: (4 semaines) --> remise 18h29 le 17 octobre 2017
+
+1) Extraction des commentaires en C++
+	Analyser la solution, analyser le code
+	Un rapport à produire
+
+2) Prendre ce qui a été fait et le transformer en un nouveau programme
+	qui fait l'extraction des littéraux C++ (variables, constantes, etc)
+	Graphique a faire (rapport)
+	Remettre code source
