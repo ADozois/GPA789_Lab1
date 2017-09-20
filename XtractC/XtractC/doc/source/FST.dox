@@ -1,0 +1,62 @@
+/*!
+
+
+
+\page fst Transducteur fini
+
+\tableofcontents
+
+\section fst_intro Introduction
+
+Un <b><a href="https://fr.wikipedia.org/wiki/Transducteur_fini" target="_blank">transducteur fini</a></b> (__TF__) ou __transducteur à états finis__ (ou en anglais <b><i>finite states transducer</i></b>) est un modèle d'automate effectuant la transformation de la chaîne d'entrée en une chaîne différente.
+
+Contrairement aux \ref fsm, ils transforment les symboles d'entrée en symboles de sortie différents. Ces automates sont très utilisés dans l'analyse syntaxique, l'analyse morphologique et aussi pour les compilateurs produisant un code source intermédiaire entre les langages de programmation (tel que le C++) et le langage machine. 
+
+Il est intéressant d'observer qu'un __TF__ est une spécialisation ou une sous classe d'un \ref fsm_behavioral.
+
+\section fst_formal_def Définition
+
+Un __transducteur fini__ est un 6-uplets \f$\mathcal{M} = (\mathcal{A}, \mathcal{B}, \mathcal{S}, s_0, \delta, \mathcal{F})\f$ où :
+ - \f$\mathcal{M}\f$ est l'automate
+ - \f$\mathcal{A}\f$ est un ensemble fini non vide de tous les symboles d'entrée acceptés (l'alphabet d'entrée) : \f$\mathcal{A} = \{\:a_1,\:a_2,\:a_3,\:\ldots,\:a_n \},\: \mathcal{A} \neq \emptyset\f$
+ - \f$\mathcal{B}\f$ est un ensemble fini non vide de tous les symboles de sortie acceptés (l'alphabet de sortie) : \f$\mathcal{B} = \{\:b_1,\:b_2,\:b_3,\:\ldots,\:b_n \},\: \mathcal{B} \neq \emptyset\f$
+ - \f$\mathcal{S}\f$ est un ensemble fini non vide de tous les états : \f$\mathcal{S} = \{\:s_1,\:s_2,\:s_3,\:\ldots,\:s_n \},\: \mathcal{S} \neq \emptyset\f$
+ - \f$s_0\f$ est l'identifiant de l'état initial : \f$s_0 \in \mathcal{S}\f$
+ - \f$\delta\f$ est la fonction de transition de l'automate où \f$s_{t+1} = \delta(s_t,\:a_t)\f$ (ou sous une autre notation : \f$\delta : s_t \times a_t \rightarrow s_{t+1}\f$)
+ - \f$\mathcal{F}\f$ est un ensemble fini non vide de tous les états acceptants : \f$\mathcal{F} \subseteq \mathcal{S}, \:\mathcal{F} = \{\:f_1,\:f_2,\:f_3,\:\ldots,\:a_n \},\: \mathcal{F} \neq \emptyset\f$
+
+Les mécanismes sont les mêmes que pour l'automate fini sauf que pour chaque transition on produit une sortie spécifique. 
+
+La notation suivante indique qu'à un état donné \f$s_t\f$ on lit le symbole d'entré \f$a_t\f$, on produit un symbole de sortie \f$b_t\f$ et on transite vers l'état suivant \f$s_{t+1}\f$ :
+\f$s_t\stackrel{a_t\:|\:b_t}{\longrightarrow}s_{t+1}\f$.
+
+
+\section fst_example Exemple
+
+\image html Exemple_FST.png "Figure 1 : Exemple d'un transducteur fini"
+
+Considérant le schéma ci-haut :
+ - \f$\mathcal{A} = \{a,\: b\}\f$
+ - \f$\mathcal{B} = \{0,\: 1,\: 2\}\f$
+ - \f$\mathcal{S} = \{s_1,\: s_2,\: s_3\}\f$
+ - \f$s_0 = s_1\f$
+ - \f$\mathcal{F} = \{s_1\}\f$
+ - \f$\delta\f$ défini selon la table ci-bas (sont indiqués entre crochets les symboles de sortie selon la combinaison état et symbole d'entrée) :
+| État   | a      | b      |
+| :----: | :----: | :----: |
+| s1     | s2 [1] | s1 [0] |
+| s2     | s1 [1] | s3 [2] |
+| s3     | s1 [1] | s1 [1] |
+
+
+Voici quelques résultats obtenus selon différentes chaînes données en entrée :
+ - aba : 121 (termine avec un état acceptant)
+ - aaa : 111 (ne termine pas avec un état acceptant)
+ - baababa : 0110121 (termine avec un état acceptant)
+
+\section fst_lab Pour ce laboratoire
+
+Pour ce laboratoire, un transducteur fini est utilisé pour résoudre le problème d'extraction de commentaires.
+
+
+*/

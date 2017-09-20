@@ -1,0 +1,115 @@
+Ligne 00001 - - - - - - - - - - 
+/* * * * * * * * * * * * * * 
+ * Ce fichier contient une liste de tests visant a confirmer 
+ * la validation de l'extraction de commentaires provenant 
+ * d'un fichier C++ (c/h - cpp/hpp).
+ *
+ * Ce fichier n'est pas un programme valide et ne compile pas.
+ * Les accents ont ete retires afin de facilite l'affichage sur
+ * uen console Windows.
+ * * * * * * * * * * * * * */
+
+Ligne 00011 - - - - - - - - - - 
+/* 1re serie : Tests des commentaires de style C */
+
+Ligne 00013 - - - - - - - - - - 
+/* Simples commentaires : style c */
+
+Ligne 00014 - - - - - - - - - - 
+/* Commentaires sur plusieurs lignes :
+ligne 2
+ligne 3
+*/
+
+Ligne 00018 - - - - - - - - - - 
+/* Commentaires sur plusieurs lignes incluant quelques caracteres de controle :
+multi ligne\
+"une chaine de caracteres"
+'c' un caractere
+*/
+
+Ligne 00023 - - - - - - - - - - 
+/*en debut de ligne*/
+
+Ligne 00024 - - - - - - - - - - 
+/*en milieu de ligne*/
+
+Ligne 00025 - - - - - - - - - - 
+/* en fin de ligne*/
+
+Ligne 00027 - - - - - - - - - - 
+/* Autres tests */
+
+Ligne 00028 - - - - - - - - - - 
+/**************************************************/
+
+Ligne 00029 - - - - - - - - - - 
+/*T*E*S*T*/
+
+Ligne 00030 - - - - - - - - - - 
+/*\
+/*\
+*/
+
+Ligne 00034 - - - - - - - - - - 
+/* Bug - La prochaine ligne n'est pas un commentaires */
+
+Ligne 00037 - - - - - - - - - - 
+/* Est-ce un commentaire? *\
+/ 
+ce commentaire est valide... mais termine a la ligne suivante 
+et non pas a la ligne precedente.
+*/
+
+Ligne 00043 - - - - - - - - - - 
+// 2e serie : Tests des commentaires de style C++
+
+Ligne 00045 - - - - - - - - - - 
+// Commentaires sur une ligne complete
+
+Ligne 00046 - - - - - - - - - - 
+// Commentaire en fin de ligne
+
+Ligne 00047 - - - - - - - - - - 
+// Commentaire en fin de ligne multi ligne\
+qui va jusqu'ici\
+et meme plus loin!
+
+Ligne 00050 - - - - - - - - - - 
+// Commentaire multi-lignes encore une fois \
+qui termine ici!
+
+Ligne 00053 - - - - - - - - - - 
+// Bug - Les prochaines lignes ne sont pas des commentaires
+
+Ligne 00058 - - - - - - - - - - 
+// 3e serie : Divers
+
+Ligne 00060 - - - - - - - - - - 
+/* Cacartere et chaines de caractère sans commentaires */
+
+Ligne 00072 - - - - - - - - - - 
+/* Avec multi lignes */
+
+Ligne 00078 - - - - - - - - - - 
+/* 
+Caractere et chaine de caracteres mal definies.
+Genere des erreurs de compilation, mais servent a valider la structure des commentaires.
+Ces 6 lignes generent 3 caracteres et 3 chaines de caracteres.
+*/
+
+
+
+File statistics :
+Number of lines : 89
+Number of spaces : 361
+Number of other characters : 1709
+Number of C style comments : 17
+Number of C++ style comments : 7
+Number of strings : 8
+Number of characters : 10
+
+Accepting state :
+Statistics extraction returned with success : true
+C++ comments extraction returned with success : true
+

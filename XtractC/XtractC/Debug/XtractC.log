@@ -1,0 +1,29 @@
+﻿  XtractC.cpp
+  TransitionTransducer.cpp
+  TransitionCounter.cpp
+  Transition.cpp
+  TransducerActionOStream.cpp
+  TransducerActionOStatic.cpp
+  TransducerActionOFileStat.cpp
+  TransducerActionOFileLineNum.cpp
+  TransducerActionODynamic.cpp
+  StateCounter.cpp
+  State.cpp
+  MatchSingleSymbol.cpp
+  MatchNotSingleSymbol.cpp
+  MatchNotListSymbols.cpp
+  MatchListSymbols.cpp
+  MatchAllSymbols.cpp
+  main.cpp
+  FiniteStateTransducer.cpp
+  FiniteStateMachine.cpp
+  BehavioralTransition.cpp
+  Generating Code...
+  Compiling...
+  BehavioralState.cpp
+  BehavioralMachine.cpp
+  AutomatonFileStatExtraction.cpp
+  AutomatonCppCommentExtraction.cpp
+  Generating Code...
+  XtractC.vcxproj -> C:\Users\Guillaume\Documents\GitHub\GPA789_Lab1\XtractC\Debug\XtractC.exe
+  XtractC.vcxproj -> C:\Users\Guillaume\Documents\GitHub\GPA789_Lab1\XtractC\Debug\XtractC.pdb (Partial PDB)

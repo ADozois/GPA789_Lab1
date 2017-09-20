@@ -1,0 +1,56 @@
+/*!
+
+\page vs_project_packaging Remise d'un projet Visual Studio
+
+\tableofcontents
+
+\section Recommandations
+
+Visual Studio est un logiciel professionnel destiné à l'industrie. Il possède une multitude de stratégies afin d'optimiser son travail et réduire certaines tâches redondantes (la compilation par exemple). Pour cette raison Visual C++ génère beaucoup de fichiers superflus non-essentiels à votre solution. Lors d'une remise, il devient gênant et inutile de remettre tous ces documents qui peuvent souvent faire exploser la taille du projet. Voici une procédure simple pour vous permettre de faire une remise complète et de taille minimum :
+
+ -# Nettoyer la solution : Build / Clean Solution
+ -# Directement dans les dossiers du projet, effacer les dossiers ainsi que tous les fichiers contenus dans les dossiers :
+   - _Debug_
+   - _Release_
+ -# Directement dans les dossiers de la solution, effacer les dossiers ainsi que tous les fichiers contenus dans les dossiers :
+   - <i>.vs</i>
+   - _Debug_
+   - _Release_
+ -# Dans les dossiers du projet, effacer tout ce qui a comme extension :
+   - `*.aps`
+   - `*.builds`
+   - `*.cachefile`
+   - <b>`*.ilk`</b>
+   - `*.meta`
+   - <b>`*.ncb`</b>
+   - <b>`*.obj`</b>
+   - `*.opendb`
+   - `*.opensdf`
+   - `*.pch`
+   - <b>`*.pdb`</b>
+   - `*.pgc`
+   - `*.pgd`
+   - `*.pidb`
+   - `*.rsp`
+   - `*.sbr`
+   - <b>`*.sdf`</b>
+   - `*.scc`
+   - `*.svclog`
+   - `*.tlb`
+   - `*.tli`
+   - `*.tlh`
+   - `*.tmp`
+   - `*.tmp_proj`
+   - `*.log`
+   - <b>`*.VC.db`</b>
+   - <b>`*.VC.VC.opendb`</b>
+   - `*.vspscc`
+   - `*.vssscc` \n
+   _les extensions mises en caractères gras indiquent les fichiers les plus pertinents à retirer à cause de leur nombre et de leur volume potentiel_
+
+Vous pouvez compresser votre projet en un fichier seul fichier pour l'archiver ou l'envoyer. Il peut être pratique de renommer l'extension *.zip en *.abc par exemple pour que les outils d'antivirus des serveurs de mails n'empêchent pas l'envoi. 
+
+__Un dernier conseil, avant de vous mettre à tout effacer, travailler sur une copie de vos documents!__
+
+
+*/

@@ -1,0 +1,84 @@
+/*!
+
+
+
+\page fsm Automate fini
+
+\tableofcontents
+
+\section fsm_intro Introduction
+
+Un <b><a href="https://fr.wikipedia.org/wiki/Automate_fini" target="_blank">automate fini</a></b> (__AF__) ou __automate à états finis__ (ou en anglais <b><i>finite states machine</i></b>) est un modèle mathématique de calcul correspondand à une machine de circuit séquentiel. Cette machine est construite par un <a href="https://fr.wikipedia.org/wiki/Graphe_orient%C3%A9" target="_blank">graphe orienté</a> où les noeuds sont des états et les flèches des transitions conditionnelles. Les __AF__ sont utilisés dans de nombreuses applications du génie car ils permettent de modéliser un grand nombre de situations avec un formalisme efficace tout en restant relativement simple et performant. Par ailleurs, ces modélisations permettent la création de solutions à des problématiques pouvant être relativement complexes. 
+
+En <a href="https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_automates" target="_blank">théorie des automates</a>, il existe un très grand nombre d'automates avec chacun ses caractéristiques propres. L'automate fini est considéré le plus simple d'entre eux. 
+
+Un tel automate est constitué de trois composants principaux :
+ - alphabet : ensemble de symboles pouvant être analysés afin d'établir le déroulement de l'__AF__
+ - état : ensemble d'états (représentation abstraite d'une situation spécifique du problème)
+ - transition : ensemble de transitions permettant de déterminer les conditions pour passer d'un état à un autre
+ 
+Il existe un état initial permettant de déterminer l'état de départ de l'automate. Ensuite, pour chaque symbole devant être traité, les transitions déterminent s'il y a changement d'état. En tout temps, l'état courant indique quel est l'état actuel du processus. Ainsi, l'état courant est constamment déplacé selon le schéma construit pour représenter le modèle.
+
+Finalement, un __AF__ est la création d'un graphe dirigé où la structure représente le modèle d'une situation particulière.
+
+\section fsm_formal_def Définition
+
+Un __automate fini__ est un 5-uplets \f$\mathcal{M} = (\mathcal{A}, \mathcal{S}, s_0, \delta, \mathcal{F})\f$ où :
+ - \f$\mathcal{M}\f$ est l'automate
+ - \f$\mathcal{A}\f$ est un ensemble fini non vide de tous les symboles acceptés (l'alphabet) : \f$\mathcal{A} = \{\:a_1,\:a_2,\:a_3,\:\ldots,\:a_n \},\: \mathcal{A} \neq \emptyset\f$
+ - \f$\mathcal{S}\f$ est un ensemble fini non vide de tous les états : \f$\mathcal{S} = \{\:s_1,\:s_2,\:s_3,\:\ldots,\:s_n \},\: \mathcal{S} \neq \emptyset\f$
+ - \f$s_0\f$ est l'identifiant de l'état initial : \f$s_0 \in \mathcal{S}\f$
+ - \f$\delta\f$ est la fonction de transition de l'automate où \f$s_{t+1} = \delta(s_t,\:a_t)\f$ (ou sous une autre notation : \f$\delta : s_t \times a_t \rightarrow s_{t+1}\f$)
+ - \f$\mathcal{F}\f$ est un ensemble fini non vide de tous les états acceptants : \f$\mathcal{F} \subseteq \mathcal{S}, \:\mathcal{F} = \{\:f_1,\:f_2,\:f_3,\:\ldots,\:a_n \},\: \mathcal{F} \neq \emptyset\f$
+ 
+Formellement, \f$\delta\f$ est la fonction qui permet de déterminer la transition pour chaque état considérant tous les symboles de l'alphabet. Dans ce cas, la taille de \f$\delta\f$ est déterminée par : \f$|\delta| = |\mathcal{S}| \times |\mathcal{A}|\f$. Par convention et pour réduire la taille de certains problèmes, il est accepté que \f$\delta\f$ soit une fonction partielle. C'est à dire, qu'elle ne soit pas définie pour toutes les combinaisons d'états et symboles. Dans ce cas, lors du processus, si la transition d'un symbole n'est pas traité pour un état donné, trois comportements sont envisagés et laissé au soin du concepteur :
+ - production d'une erreur et arrêt de l'automate
+ - production d'une erreur et rejet du symbole d'entrée
+ - transition automatique vers le même état
+
+Le traitement des symboles se fait par le processus de changement d'état selon la transition correspondante au symbole traité. Ainsi, pour l'exécution de l'automate, on introduit l'état courant \f$s_c\f$ qui est initalisé à \f$s_0\f$. Par conséquent, pour l'état \f$s_t\f$ et le symbole \f$a_t\f$ traité par l'automate au temps \f$t\f$, la fonction de transition \f$\delta\f$ détermine le nouvel état \f$s_c = s_{t+1}\f$. La notation suivante représente cette situation : \f$s_t\stackrel{a_t}{\longrightarrow}s_{t+1}\f$ (lire : l'état courant \f$s_t\f$ et le symbole courant \f$a_t\f$ produit une transition \f$\rightarrow\f$ vers le nouvel état courant \f$s_{t+1}\f$).
+
+Notes supplémentaires :
+ - L'automate est susceptible de se trouver dans n'importe lequel des états \f$\mathcal{S}\f$ à un moment donné.
+ - L'état courant \f$s_c\f$ représente l'état dans lequel se trouve l'automate au moment de l'observation .
+ - L'état initial \f$s_0\f$ représente l'état dans lequel l'automate se trouve au démarrage (au début du processus \f$s_c = s_0\f$).
+ - Un état acceptant \f$f\f$ est un état dans lequel la machine déclare que la chaîne d'entrée traitée jusqu'alors appartient au langage qu'elle reconnaît. À n'importe quel moment et plus spécifiquement à la sortie de l'automate, il est possible de valider valider si une chaîne de symboles correspond au modèle.
+ - L'état initial peut être un état acceptant.
+
+\section fsm_representation Représentation
+Il existe plusieurs représentation possible d'un __AF__. On retrouve plus souvent le diagramme de transition permettant d'illustrer simplement tout l'automate. On utilise aussi la table de transition afin de présenter une synthèse de \f$\delta\f$.
+
+\subsection fsm_rep_diagram Diagramme
+Le diagramme de transition a l’avantage de montrer explicitement les transitions de l’automate. La \a Figure 1 donne un exemple d’un diagramme de transitions. Ce diagramme est identique à ceux utilisés dans la logique synchrone des circuits numériques. À noter que la flèche entrante indique l'état initial et que les états acceptants sont illustrés par deux cercles.
+\image html Exemple_FSM_Diagramme.png "Figure 1 : Diagramme de transition d'un AEF"
+
+\subsection fsm_rep_transtable Table de transition
+La table de transitions permet d'illustrer différemment les mêmes informations. Sous forme tabulaire, l’état initial est indiqué par une flèche entrant (vers la droite) alors que les états acceptants sont illustrés par une flèche sortant (vers la gauche).
+\image html Exemple_FSM_TableTransition.png "Figure 2 : Table de transitions d'un AEF"
+
+Les figures 1 et 2 illustrent le même exemple. Considérant cet exemple, l’automate accepte comme chaîne _ab_, _bab_, _baab_, _aab_, ... . En effet, dès qu’une chaîne se termine par _ab_, elle est acceptée par l’automate. La raison est que l’état acceptant \f$s_2\f$ est atteint par un seul et uniquement chemin.
+
+\section fsm_example Exemple
+... insérer un exemple ici ... à faire ...
+
+\section fsm_behavioral Automate comportemental
+
+Un __automate comportemental__ (__AC__) (ou en anglais <b><i>behavioral machine</i></b>) permet la définition de tâches spécifiques à différents moments du processus. Pour cet énoncé, on retiendra la définition usuelle suivante :
+ - <b>état</b> : on ajoute trois tâches optionnelles :
+     - entrant : lorsque une transition est terminée et qu'un nouvel état est déclaré _état courant_, alors cette tâche est exécutée;
+	 - traitement : pour l'_état courant_, cette tâche est exécutée soit :
+	     - en mode synchrone (à chaque traitement de nouveau symbole et qu'il n'y a pas de transition);
+		 - en mode asynchrone (avec une boucle interne indépendante du traitement de l'automate);
+	 - sortant : avant qu'une transition soit terminée et exécuté, alors cette tâche est exécutée.
+ - <b>transition</b>, on ajoute une tâche optionnelle :
+	 - traitement : lorsque la transition s'applique, la tâche spécifiée est exécutée.
+
+\section fsm_lab Pour ce laboratoire
+
+Tel que mentionné plus haut, il existe plusieurs types d'automate possibles. Pour ce laboratoire, un type d'automate différent est utilisé : il s'agit du transducteur fini (\ref fsm).
+
+Pour les lecteurs intéressés, voici au automate particulièrement intéressant : <a href="https://en.wikipedia.org/wiki/UML_state_machine" target="_blank"><b><i>UML State Machine</i></b></a> 
+
+
+
+*/

@@ -8,3 +8,12 @@ Information donné lors de la première séance de lab: (4 semaines) --> remise 18h
 	qui fait l'extraction des littéraux C++ (variables, constantes, etc)
 	Graphique a faire (rapport)
 	Remettre code source
+
+
+Dans graphique de l'automate:
+
+
+en haut de sa: la transition il manque un "!" devant la condition
+       _____
+----->|Code|---->
+       -----
