@@ -1,0 +1,65 @@
+/*!
+
+\page production Conception et développement d'une nouvelle solution : Extraction des littéraux
+
+\tableofcontents
+
+\section production_context Mise en contexte
+Il est souvent déconseillé d'utiliser des littéraux dans le corps d'un programme. On recommande plutôt l'usage de constantes qui permettent de modififier facilement le comportement du programme sans devoir parcourir tout le code et répéter plusieurs fois les mêmes copies de valeur. 
+
+On vous demande de créer un nouveau logiciel inspiré de XtractC. Vous devez donc modifier l'automate d'extraction des commentaires pour lui donner une fonctionnalité similaire mais différentes : l'extraction des littéraux suivants :
+ - les caractères
+ - les chaînes de caractères
+ - les valeurs numériques (positives et négatives) :
+     - entières :
+	    - binaire : `0b01010...` (`b` ou `B` comme 2_e_ caractère)
+		- décimale : `1234...`
+		- octale : `01234...`
+		- hexadecimal : `0x10cafe...` (`x` ou `X` comme 2_e_ caractère - `a`, `b`, `c`, `d`, `e` et `f` peuvent être majuscule aussi)
+     - à points flottants :
+	    - simple : `3.1416f` (f ou F à la fin seulement)
+		- double : `3.141592654`
+		- on ne vous demande pas de gérer les nombres en notation scientifique (`1.23456E-6` par exemple)
+ - en boni [ _1%_ ], les littéraux booléens
+
+__Attention__, depuis le C++11 il existe une panoplie de nouveautés concernant les littéraux et les règles syntaxiques sont beaucoup plus complexes. On vous demande de gérer uniquement les cas mentionnés ci-haut. De plus, prenez pour acquis que les fichiers qui seront testés seront conforme au langage C++. Il n'est pas question de gérer tous les cas où les constantes sont mal définies.
+
+À titre de référence, voici les définitions formelles des littéraux :
+ - <a href="http://en.cppreference.com/w/cpp/language/character_literal" target="_blank">littéraux caractère</a>
+ - <a href="http://en.cppreference.com/w/cpp/language/string_literal" target="_blank">littéraux chaîne de caractères</a>
+ - <a href="http://en.cppreference.com/w/cpp/language/integer_literal" target="_blank">littéraux numérique entier</a>
+ - <a href="http://en.cppreference.com/w/cpp/language/floating_literal" target="_blank">littéraux numérique à point flottant</a>
+ - <a href="http://en.cppreference.com/w/cpp/language/bool_literal" target="_blank">littéraux booléen</a>
+
+\section production_constraints Contraintes
+ - Comme l'exemple donné, vous devez afficher le numéro de ligne du littéral et ensuite sa valeur. Aussi, à la fin, vous devez afficher quelques statistiques :
+    - le nombre de lignes
+    - le nombre d'espace
+    - le nombre d'autres caractères
+    - le nombre de commentaires style-C
+    - le nombre de commentaires style-C++
+    - le nombre de littéraux caractères
+    - le nombre de littéraux chaînes de caractères
+    - le nombre de littéraux entière
+    - le nombre de littéraux point flottant
+ - Vous devez créer un <b>nouveau projet</b> dont la structure et l'approche doivent être similaire à __XtractC__. Ainsi, vous devez créer :
+    - un nouveau filtre `XtractL` dans la solution de _Visual Studio_;
+    - une classe `XtractL`;
+    - les nouvelles classes d'état, de transition, de comparaison de symboles `MatchSymbol`) et d'action (`TransducerAction`) si requises;
+	- modifier la fonction `main` pour utiliser `XtractL`.
+ - Vous devez créer une nouvelle classe de type `MatchSymbol`. Cette classe doit se nommer `MatchRangeSymbols(symbol_t first, symbol_t last)` et tirer profit du fait que plusieurs caractères sont définis par une suite continue de la table des codes _Ascii_ (de a à z, de A à Z et de 0 à 9).
+ - Vous ne pouvez pas utiliser d'expressions régulières.
+ - On vous demande de produire la documentation Doxygen uniquement pour la classe `MatchRangeSymbols`. Le reste de votre code ne requiert pas de documentation spécifique. Néanmoins, une documentation minimum est attendue.
+ - Vous devez produire le diagramme d'état de votre automate __XtractL__ et l'insérer dans votre rapport final. Vous avez à votre disposition le <a href="XtractC.vsdx" download="XtractC.vsdx">document de conception</a> en format `vsdx` utilisé pour cette documentation. Vous êtes encouragé à l'utiliser et le modifier pour produire votre schéma.
+
+\section production_advice Conseils
+ - L'automate actuel couvre déjà une grande partie du problème. Les commentaires, caractères et chaînes de caractères sont déjà gérés. 
+ - Même si la structure actuelles est bonne, elle doit être modifiée pour que les commentaires ne s'affichent plus et que les caractères ainsi que les chaînes de caractères s'affichent.
+ - Voici les étapes à considérer : 
+     -# Reprenez le diagramme d'état et produisez votre diagramme en incluant tous les états manquant.
+     -# Modifiez l'automate actuel pour qu'il n'affiche plus les commentaires.
+     -# Modifiez l'automate pour qu'il affiche les caractères.
+     -# Modifiez l'automate pour qu'il affiche les chaînes de caractères.
+     -# Ajoutez l'extraction des nombres (remarquez les nombreuses similarités);
+
+*/

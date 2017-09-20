@@ -1,0 +1,51 @@
+/*!
+
+\page cpp_comment_extraction Stratégie d'extraction des commentaires en C++
+
+\tableofcontents
+
+\section Introduction
+Tel que présenté, l'extraction des commentaires contenus dans les fichiers source est unt tâche pertinente et nécessaire dans plusieurs situations. 
+
+Pour ce laboratoire, un __TF__ (voir \ref fst) est réalisé afin de détecter la présence des commentaires de style C et C++. Suite aux lectures d'introduction, on note plusieurs défis :
+ - les règles syntaxiques associés aux deux types de commentaires :
+      - par bloc;
+	  - de fin de ligne;
+ - le méta-caractère barre oblique inverse `\n` servant à indiquer :
+      - les caractères spéciaux dans un caractère et une chaîne de caractère;
+	  - un saut de ligne permettant le multi-lignes (rappelons-nous que ce caractère indique au pré-processeur du compilateur de substituer le saut de ligne par un espace; ainsi, on peut considérer le traitement des caractères de la ligne suivante comme faisant partie de la ligne courante);
+ - la gestion du saut de ligne dans les fichiers texte (`\n`);
+ - les caractères (il faut les gérer puisque l'usage d'un `/` lors de la déclaration d'un caractère peut laisser croire à l'amorce d'un commentaire);
+ - les chaînes de caractères (commet pour les caractères, il faut les gérer puisque l'usage d'un `/` ou d'un `//` ou d'un `/*` lors de la déclaration d'une chaîne de caractères peut laisser croire à l'amorce d'un commentaire).
+
+Considérant toutes ces contraintes, la tâche d'extraction n'est pas triviale et une analyse détaillée permet de relever les nombreux défis existants. Au lieu d’extraire les commentaires d’une manière intuitive, nous allons procéder systématiquement à leur détection. Une façon efficace pour réaliser cette tâche est l’utilisation d’un __TF__. Dans notre contexte, les caractères du fichier source sont considérés comme des symboles d’entrée de l’automate alors que l'affichage désiré est considéré comme les symboles de sortie. Selon le déroulement du traitement du fichier d'entrée, l’automate se mettra dans des états spécifique et les transitions produiront la sortie désirée.
+
+Le schéma suivant montre le diagramme de transition développé. Voici <a href="Automates_ExtractionCommentairesCpp.png" download="Automates_ExtractionCommentairesCpp.png">le lien</a> pour télécharger l'image en pleine résolution.
+
+\image html Automates_ExtractionCommentairesCpp.png "Extraction des commentaires en C++"
+
+En pratique, la conception du __TF__ implique également des états supplémentaires qui peuvent être utiles lors de l’ajout de nouvelles capacités à l’automate. C’est pour cette raison que certains états et certaines transitions ne sont pas vraiment utilisés. 
+
+Le diagramme de transitions donné plus haut montre plusieurs éléments :
+ - Deux automates ont été développés :
+     -# le premier, sert exclusivement à extraire certaines statistiques concernant le fichier :
+	      - le nombre de ligne;
+	      - le nombre d'espace;
+	      - le nombre de caractères;
+	 -# le second, est celui développé pour l'extraction des commentaires.
+ - Chaque rectangle indique un état :
+     - un rectangle au centre gris est l'état initial;
+     - un double rectangle indique un état acceptant;
+	 - le nom inscrit au centre est celui de l'objet correspondant dans le code source.
+ - Chaque flèche indique une transition. Chacune des flèches indique plusieurs informations fondamentales à comprendre :
+     - entre crochet se trouve la condition de transition, par exemple `[ a ]` indique que le caractère `a` est le symbole de transition;
+	 - au dessus se trouve le nom de l'objet correspondant dans le code source;
+	 - au dessous se trouve l'action réalisant la sortie du transducteur :
+	     - cette action peut inclure des caractères statiques, dynamiques et des informations statistiques comme le numéro de ligne - ils sont précisés entre accolade, par exemple `{ C }` indique que l'action affichera le caractère courant;
+		 - un code supplémentaire (`s`, `d` et `n`) indique la classe utilisée pour réaliser cet objet.
+		 - on remarque que plusieurs transitions n'ont pas cet élément, ces transitions indiquent qu'il n'y a aucune action à faire.
+ - Au bas de l'image se trouve une légende détaillée expliquant plusieurs aspets supplémentaires du schéma. 
+ 
+<b>Avant de poursuivre le laboratoire, il est essentiel de bien se familiariser avec ce schéma et de toutes ses ramifications.</b>
+
+*/

@@ -1,0 +1,25 @@
+﻿div.image img[src="Exemple_FSM_Diagramme.png"] {
+    /* width 576 - 75% */
+    width: 432px;
+}
+
+div.image img[src="Exemple_FSM_TableTransition.png"] {
+    /* width 496 - 75% */
+    width: 372px;
+}
+
+div.image img[src="Exemple_FST.png"] {
+    /* 761 x 623 */
+    /* width 761 - 50% */
+    width: 381px;
+}
+
+div.image img[src="Automates_ExtractionCommentairesCpp.png"] {
+    /* 3332 x 4090 */
+    /* width 3332 - 35% */
+    width: 75%;
+}
+
+
+
+

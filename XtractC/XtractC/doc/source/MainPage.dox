@@ -1,0 +1,103 @@
+//! \mainpage GPA789 - Laboratoire 1 - Extraction d'éléments du langage C++
+//!
+//! \tableofcontents
+//! 
+//! \section intro Introduction
+//!
+//! Ce premier laboratoire est un projet de programmation utilisant le langage C++ et les techniques de l'orientée objet afin de créer un programme informatique capable d'extraire des éléments existants dans un fichier source. Pour ce faire, un automate fini (__AF__) conçu pour cette tâche est mis en place. La spécialisation d'un __AF__ permet d’appliquer les actions appropriées sur les éléments détectés afin de les extraire et de les présenter. 
+//!
+//! Ce laboratoire consiste d'abord à vous approprier un programme existant à propos duquel vous aurez à répondre à plusieurs questions. Ensuite, vous devez réaliser une nouveau projet en s'inspirant largement du premier.
+//!
+//! \section objectifs Objectifs pédagogiques
+//! Les objectifs pédagogiques de ce laboratoire sont énumérés en ordre décroissant d’importance:
+//!  -# Prendre contact avec le paradigme de la programmation orienté objet.
+//!  -# Apprendre la syntaxe et la sémantique du langage C++.
+//!  -# Se familiariser avec l’environnement de développement Visual C++.
+//!  -# Saisir la différence entre une classe et un objet.
+//!  -# Comprendre le mécanisme impliqué dans la dérivation des classes.
+//!  -# Manipuler les fonctions membres virtuelles d’une classe C++.
+//!  -# Apprécier les capacités d'un automate fini.
+//!  -# Décortiquer et s'approprié le code réalisé par une autre personne.
+//!  -# Mettre en oeuvre quelques éléments issus de programmation orientée objet.
+//!  -# Apprendre à bien documenter un programme.
+//!
+//! \section realisation Réalisation du laboratoire
+//!
+//! Ce laboratoire se déroule en trois étapes principales :
+//!  -# Retour succinct sur les automates
+//!  -# Analyse d'une solution existante : Extraction des commentaires - <code>XtractC</code>
+//!  -# Conception et développement d'une nouvelle solution : Extraction des littéraux - <code>XtractL</code>
+//!
+//! \subsection realisation_automaton Les automates
+//!
+//! Pour ce laboratoire, il a été décidé d'utiliser les automates afin d'eploiter autant que possible les concepts de la programmation orienté objet. Ainsi, tout le laboratoire 1 est basé sur l'un des trois automates développés.
+//!
+//! La lecture des articles suivants est essentielle au déroulement du laboratoire. Elles présentent les automates utilisés :
+//!  - \ref fsm
+//!  - \ref fsm_behavioral
+//!  - \ref fst
+//!
+//! \subsection realisation_xtractc Analyse d'une solution existante : Extraction des commentaires
+//!
+//! Les commentaires jouent un rôle important dans la documentation d’un programme informatique. Malheureusement, les commentaires sont souvent les seules informations disponibles pour la compréhension du code source. Cette situation malencontreuse est surtout remarquée dans les partagiciels où le code source est distribué gratuitement. Il est donc intéressant de pouvoir extraire les commentaires des fichiers sources afin de faciliter l’étude et l’analyse du programme.
+//!
+//! La solution XtractC exploite un automate de type transducteur afin d'extraire les commentaires de fichiers du langage C++. L'objectif est de faire un premier contact avec les notions de la programmtion orientée objet et de faire une analyse rigoureuse d'une solution déjà en place. La taille du projet dépasse les simples exemples pédagogiques habituels et il est nécessaire de passer beaucoup de temps pour s'approprier tout ce que la solution présente.
+//!
+//! Voici ce que vous avez à réaliser pour cette partie du laboratoire :
+//!  -# __Prise de contact avec l'extraction des commentaires.__ La lecture des articles suivants vous permettra de faire un retour sur quelques concepts fondamentaux liés aux structures de fichier :
+//!   - \ref comments
+//!   - \ref multiline
+//!   - \ref newline
+//!  -# __Mise en place de la solution.__ Vous devez faire tous le montage de la solution dans Visual Studio (voir \ref setup_solution pour tous les détails).
+//!  -# __Présentation sommaire de la solution.__ Avant de faire l'analyse détaillée de la solution, vous devez obligatoirement prendre connaissance des articles suivants qui présentent les grandes lignes de la solution :
+//!   - \ref cpp_comment_extraction
+//!   - \ref program_summary
+//!  -# __Analyse d'un programme orienté objet.__ Vous devez produire un document répondant aux questions suivantes : \ref questions
+//!
+//! \subsection realisation_xtractL	Conception et développement d'une nouvelle solution : Extraction des littéraux
+//!
+//! Une bonne conception orientée objet augmente substanciellement la modularité des programmes. On vous demande ici de réutiliser __XtractC__ afin de produire une nouvelle application qui fera exclusivement l'extraction des littéraux. Vous trouverez toute les informations sur la page : \ref production
+//!
+//! \section constraints Contraintes
+//! 
+//! Voici les contraintes du projet :
+//!  - Vous avez quatre semaines pour réaliser le laboratoire.
+//!  - Vous devez obligatoirement être en équipe de deux étudiants. Si la classe possède un nombre impaire d'étudiants, exceptionnellement une seule équipe de trois sera permise. L'objectif est d'échanger autant que possible sur les notions de l'orienté objet.
+//!  - Sans faire de plagiat, l'entre aide entre les équipes est encouragée. 
+//!  - Dans votre rapport final, assurez-vous de bien comprendre les éléments que vous présentez. Si le chargé de laboratoire vous pose une question sur votre travail et que vous n'êtes pas capable de répondre ou d'expliquer votre travail, vous aurez systématiquement une note de zéro pour plagiat. Une telle situation suivra le protocole de discipline de l'ÉTS à cet effet.
+//!  - Il est obligatoire de réaliser le projet avec le langage de programmation C++ et l'environnement Visual Studio. Dans les deux cas, les versions les plus récentes sont encouragées.
+//!  - Il est attendu que la qualité générale du rapport final soit du niveau d'un professionnel du génie.
+//!
+//! \section remise Remise
+//! 
+//! La remise se fait par courriel :
+//!  - __avant__ la cinquième période de laboratoire
+//!  - un courriel par équipe (une remise par équipe)
+//!  - destinataire : le chargé de laboratoire
+//!  - copie conforme (cc) : tous les membres de l'équipe
+//!  - objet : GPA789 - Laboratoire 1 - Remise
+//!  - détail : le noms de tous les membres de l'équipe et commentaire s'il y a lieu
+//!  - pièce jointe (pj) : un document ZIP contenant votre travail
+//!
+//! Le document ZIP contenant votre travail :
+//!  - nom du document ZIP : <code>GPA789_Lab1_NomPrenomEtudiant1_NomPrenomEtudiant2[\_NomPrenomEtudiant3].zip</code>
+//!  - le document ZIP doit contenir :
+//!   - un document PDF présentant votre rapport :
+//!    - nommé : <code>GPA789_Lab1_NomPrenomEtudiant1_NomPrenomEtudiant2[\_NomPrenomEtudiant3].pdf</code>
+//!    - contenant au minimum : 
+//!     - une page titre adéquate
+//!     - une introduction
+//!     - les réponses aux questions sur <code>XtractC</code> (incluant le schéma de structure des classes)
+//!     - le schéma de l'automate <code>XtractL</code>
+//!     - vos références
+//!     - _optionnellement, une section Recommandations pour indiquer toutes les coquilles que vous avez pu trouver dans cet énoncé et le code source ainsi que des suggestions (merci pour votre participation!)_
+//!     - une conclusion (dans laquel vous spécifié si vous avez réalisé le point boni)
+//!     - __attention__ : tous les schémas doivent être inclu dans le document PDF (ne pas remettre de document supplémentaire pour ces schémas)
+//!     - __information__ : pour tous les graphiques, même si on ne vous le suggère pas, vous pouvez remettre un dessin à main levée si il est claire, propre et numérisé
+//!   - un autre document ZIP contenant votre solution 
+//!    - nommé : <code>GPA789_XtractL_NomPrenomEtudiant1_NomPrenomEtudiant2[\_NomPrenomEtudiant3].zip</code>
+//!    - assurez-vous de faire le nettoyage de votre solution dans Visual Studio (consulter cette documentation à titre de référence : \ref vs_project_packaging)
+//!
+//! __Au début de la cinquième période, si la remise n'est pas faite, vous aurez une pénalité équivalent à un jour de retard.__
+//!
+//! Pour les noms de fichier, l'ordre d'apparition des étudiants est important. L'étudiant 1 doit être celui qui a eu la contribution la plus significative au projet.

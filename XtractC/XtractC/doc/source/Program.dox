@@ -1,0 +1,60 @@
+/*!
+
+\page program_summary Présentation sommaire du programme développé
+
+\tableofcontents
+
+\section program_intro Introduction
+Le programme développé est issu d'une conception basée sur l'implémentation du __TF__ développé (voir \ref cpp_comment_extraction). Il existe une multitude de façons de produire un programme simulant une _AEF_. Par exemple, l'approche traditionnelle réalise l'implémentation à l'aide d'une suite de `switch / case` représentant les différents états de l'automate. Étant donné le contexte du cours, un effort particulier a été apporté à l'utilisation des notions relatives à la conceptions orientée objet. Ainsi, la solution présentée n'est certainement pas la plus rapide en exécution ou la plus petite en taille mémoire. Néanmoins, elle a le mérite d'être très modulaire, réutilisable et élégante sans trop de compromis sur la performance générale du système.
+
+Étant donné le côté académique de l'exercice et des questions à répondre, le lecteur comprend qu'une partie de la documentation est laissée volontairement vague ou incomplète.
+
+\section program_structure Structure principale
+Le programme se présente en quatre parties principales :
+ -# les classes permettant de définir un automate générique (\ref fsm, \ref fsm_behavioral et \ref fst);
+ -# les classes permettant de définir les deux automates conçus (\ref cpp_comment_extraction);
+ -# une classe de contrôle permettant d'accéder aux entrées et sorties tout en utilisant les deux automates développés;
+ -# la fonction `main` faisant simplement l'appel du traitement structuré.
+
+\subsection program_structure_1 Classes des automates génériques
+ - Trois types d'_aux-tomates_ sont dévelopés et ils sont tous interreliés par la notion d'héritage. 
+ - Les états représentent chaque situation de l'analyse lexical suite au traitement d'un symbole. Chaque état peut posséder plusieurs transitions.
+     - State : un état simple
+     - BehavioralState : un état comportemental (incluant 3 actions possibles)
+     - StateCounter : un état comportemental comptant le nombre de fois que l'état a été utilisé
+ - Les transitions représentent les liens entre chaque état. Elles sont principalement constituées d'une condition (voir les _Match Symbol_ plus bas) et de l'étape suivante. Plus spécifiquement, pour les transitions d'un automate de type transducteur, on ajoute une action (voir les _Action_ plus bas).
+     - Transition : une transition simple
+	 - BehavioralTransition : une transition comportementale (incluant 1 action)
+	 - TransitionCounter : une transition comportementale définie qui compte le nombre de fois que la transition a été utilisée
+	 - TransitionTransducer : une transition permettant d'appeler une action spécifique
+ - Les conditions de comparaison permettant de valider si un symbole est accepté ou non pour effectuer une transition.
+     - MatchSymbol : une condition
+	 - MatchSingleSymbol : compare une symbole égal
+	 - MatchNotSingleSymbol : compare une symbole différent
+	 - MatchListSymbols : compare si le symbole fait partie d'un ensemble
+	 - MatchNotListSymbols : compare si le symbole ne fait pas partie d'un ensemble
+	 - MatchAllSymbols : accepte tous les symboles
+ - Les actions permettent au transducteur de produire une sortie spécifique lors d'une transition d'état.
+     - TransducerAction : une action
+     - TransducerActionOStream : une action pouvant pousser du contenu sur un flux de sortie
+     - TransducerActionOStatic : une action produisant la sortie d'un texte fixe
+     - TransducerActionODynamic : une action produisant la sortie d'un texte qui dépend de l'entrée (le caractère courant par exemple)
+     - TransducerActionOFileStat : une action produisant la sortie d'une statistiques
+     - TransducerActionOFileLineNum : une action produisant la sortie du numéro de ligne courant
+ - Les automates possèdent toute la mécanique de traitement validant les conditions de transition et le suivi de l'état courant.
+     - FiniteStateMachine : un automate de type __AF__
+     - BehavioralMachine : un automate de type __AC__
+     - FiniteStateTransducer : un automate de type __TF__
+
+\subsection program_structure_2 Classes des automates spécifiques
+ - L'automate faisant l'analyse statistique du fichier d'entrée.
+     - AutomatonFileStatExtraction : définition de l'automate et préparation complète
+ - L'automate réalisant l'extraction des commentaires.
+     - AutomatonCppCommentExtraction : définition de l'automate et préparation complète
+
+\subsection program_structure_3 Classe de contrôle du système
+ - Une seule classe permet de faire la gestion des entrées, des sorties et du déroublement principal du programme :
+     - XtractC : encapsule les opérations du programme
+
+
+*/
