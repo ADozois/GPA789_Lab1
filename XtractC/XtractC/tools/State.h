@@ -94,6 +94,9 @@ public:
 	//! celle retournée. 
 	Transition * isTransiting(symbol_t curSymbol) const;
 
+	//!  Overloading de l'operateur = affin de permettre l'assignation
+	State& operator=(const State& obj);
+
 protected:
 	//! La liste de transition que possède l'état.
 	list<Transition*> mTransitions;

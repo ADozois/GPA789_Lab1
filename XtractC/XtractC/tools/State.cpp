@@ -41,3 +41,12 @@ void State::deleteTransition(Transition * & transition)
 {
 	delete transition;
 }
+
+
+State& State::operator=(const State& obj) {
+	this->mName = obj.mName;
+	this->mAccepting = obj.mAccepting;
+	this->mTransitions = obj.mTransitions;
+	
+	return *this;
+}
