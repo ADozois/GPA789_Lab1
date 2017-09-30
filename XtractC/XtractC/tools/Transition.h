@@ -74,6 +74,10 @@ public:
 	//! passé devient la propriété de cette transition.
 	//! \param[in] nextState L'état suivant si la transition est effective.
 	Transition(string const & name, MatchSymbol * matchSymbol, State & nextState);
+
+	//Transition(const Transition & obj) = delete;
+
+	Transition(const Transition & obj);
 	//! Détruit la transition et libère l'objet `MatchSymbol` qu'elle 
 	//! possède.
 	virtual ~Transition();

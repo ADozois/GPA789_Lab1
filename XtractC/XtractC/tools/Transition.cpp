@@ -17,6 +17,19 @@ Transition::Transition(string const & name, MatchSymbol * matchSymbol, State & n
 	}
 }
 
+Transition::Transition(const Transition & obj)
+	:	mName { obj.mName },
+		mMatchSymbol{ obj.mMatchSymbol },
+		mNextState{ obj.mNextState }
+{
+	if (!obj.mMatchSymbol)
+	{
+		throw invalid_argument("Transition::Transition : Invalid constructor argument - matchSymbol must be assigned.");
+	}
+}
+
+
+
 Transition::~Transition()
 {
 	delete mMatchSymbol;
