@@ -19,7 +19,7 @@ Transition::Transition(string const & name, MatchSymbol * matchSymbol, State & n
 
 Transition::Transition(const Transition & obj)
 	:	mName { obj.mName },
-		mMatchSymbol{ obj.mMatchSymbol },
+		mMatchSymbol{ obj.mMatchSymbol->clone() },
 		mNextState{ obj.mNextState }
 {
 	if (!obj.mMatchSymbol)
