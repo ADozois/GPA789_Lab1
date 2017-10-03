@@ -22,7 +22,7 @@ Transition::Transition(const Transition & obj)
 		mMatchSymbol{ obj.mMatchSymbol->clone() },
 		mNextState{ obj.mNextState }
 {
-	if (!obj.mMatchSymbol)
+	if (!mMatchSymbol)
 	{
 		throw invalid_argument("Transition::Transition : Invalid constructor argument - matchSymbol must be assigned.");
 	}
