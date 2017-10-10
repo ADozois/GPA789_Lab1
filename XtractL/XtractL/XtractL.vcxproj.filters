@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Behavioral Machine">
+      <UniqueIdentifier>{0662a85c-da4a-4f1b-8fc7-ccbed499db43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Finite State Machine">
+      <UniqueIdentifier>{40bd7aed-6edb-432c-8cf7-ad72e1a69094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Finite State Transducer">
+      <UniqueIdentifier>{dde7541a-581f-4c60-990c-340f576c9bdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\XtractL">
+      <UniqueIdentifier>{b64cce14-622b-411b-8786-ed5c463df908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Behavioral Machine">
+      <UniqueIdentifier>{422d960f-000f-49c3-b218-e3f56024c796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Finite State Machine">
+      <UniqueIdentifier>{ebfb9e68-8c69-4e76-8fe2-2a11fe559487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Finite State Transducer">
+      <UniqueIdentifier>{c4655e98-6501-4ae9-ba4b-805cd2ef1c3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\XtractL">
+      <UniqueIdentifier>{a6ca76d3-af28-4603-bf0a-b63157176194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Behavioral Machine\State">
+      <UniqueIdentifier>{11af934f-76dd-4ae7-913b-bf204af733e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Behavioral Machine\Transition">
+      <UniqueIdentifier>{32613c1d-e6f6-4fa5-9794-3f860be250cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Finite State Machine\State">
+      <UniqueIdentifier>{0a7a3467-ae8a-4b23-bb9c-68c5e2ab60ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Finite State Machine\Symbol">
+      <UniqueIdentifier>{c7601ede-d9ea-4e29-b90a-2f08312411d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Finite State Machine\Transition">
+      <UniqueIdentifier>{e54a5aa7-1866-4561-b16b-99a588928b49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Finite State Transducer\Action">
+      <UniqueIdentifier>{145bbb5c-1e20-4f38-9735-ad288014ebe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Finite State Transducer\Transition">
+      <UniqueIdentifier>{383ac139-ed46-4d41-a95c-c7ec7668b984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\XtractL\Automata">
+      <UniqueIdentifier>{d07cb6bb-37b7-42b4-86b4-c63dfc7dc173}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\XtractL\Transition">
+      <UniqueIdentifier>{7f00531b-b755-436f-ba14-12d3ac25589f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Behavioral Machine\State">
+      <UniqueIdentifier>{021e7690-a974-4298-ab18-a3b0075dfb7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Behavioral Machine\Transition">
+      <UniqueIdentifier>{954e96ec-7972-4fbb-8092-702d6c4ba9c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Finite State Machine\State">
+      <UniqueIdentifier>{c2804585-4df5-4e92-9558-14f189b69584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Finite State Machine\Symbol">
+      <UniqueIdentifier>{fe5c3a67-1bda-468a-ad7a-318c56fd9054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Finite State Machine\Transition">
+      <UniqueIdentifier>{bc7082e6-4785-4a61-8d14-1be90b10f00a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Finite State Transducer\Action">
+      <UniqueIdentifier>{b8b47816-2d1c-4adf-8952-265aa715681b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Finite State Transducer\Transition">
+      <UniqueIdentifier>{36f1ce95-ed2a-465f-9d2f-c4c88ab3ebec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\XtractL\Automata">
+      <UniqueIdentifier>{1774b15b-e06b-4dc7-939d-0b67fc97f26b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\XtractL\Transition">
+      <UniqueIdentifier>{24086f53-7ed9-42b6-b755-44a2bfc5d3c2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tools\StateCounter.h">
+      <Filter>Header Files\Behavioral Machine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\BehavioralTransition.h">
+      <Filter>Header Files\Behavioral Machine\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\TransitionCounter.h">
+      <Filter>Header Files\Behavioral Machine\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\BehavioralMachine.h">
+      <Filter>Header Files\Behavioral Machine</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\BehavioralState.h">
+      <Filter>Header Files\Behavioral Machine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\State.h">
+      <Filter>Header Files\Finite State Machine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\MatchListSymbols.h">
+      <Filter>Header Files\Finite State Machine\Symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\MatchNotListSymbols.h">
+      <Filter>Header Files\Finite State Machine\Symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\MatchNotSingleSymbol.h">
+      <Filter>Header Files\Finite State Machine\Symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\MatchSingleSymbol.h">
+      <Filter>Header Files\Finite State Machine\Symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\MatchAllSymbols.h">
+      <Filter>Header Files\Finite State Machine\Symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\MatchSymbol.h">
+      <Filter>Header Files\Finite State Machine\Symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\Symbol.h">
+      <Filter>Header Files\Finite State Machine\Symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\Transition.h">
+      <Filter>Header Files\Finite State Machine\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\FiniteStateMachine.h">
+      <Filter>Header Files\Finite State Machine</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\TransducerAction.h">
+      <Filter>Header Files\Finite State Transducer\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\TransducerActionODynamic.h">
+      <Filter>Header Files\Finite State Transducer\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\TransducerActionOStatic.h">
+      <Filter>Header Files\Finite State Transducer\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\TransducerActionOStream.h">
+      <Filter>Header Files\Finite State Transducer\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\TransitionTransducer.h">
+      <Filter>Header Files\Finite State Transducer\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\FiniteStateTransducer.h">
+      <Filter>Header Files\Finite State Transducer</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\AutomatonCppCommentExtraction.h">
+      <Filter>Header Files\XtractL\Automata</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\AutomatonFileStatExtraction.h">
+      <Filter>Header Files\XtractL\Automata</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\TransducerActionOFileLineNum.h">
+      <Filter>Header Files\XtractL\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\TransducerActionOFileStat.h">
+      <Filter>Header Files\XtractL\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="XtractL.h">
+      <Filter>Header Files\XtractL</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tools\BehavioralState.cpp">
+      <Filter>Source Files\Behavioral Machine\State</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\StateCounter.cpp">
+      <Filter>Source Files\Behavioral Machine\State</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\BehavioralTransition.cpp">
+      <Filter>Source Files\Behavioral Machine\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\TransitionCounter.cpp">
+      <Filter>Source Files\Behavioral Machine\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\BehavioralMachine.cpp">
+      <Filter>Source Files\Behavioral Machine</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\State.cpp">
+      <Filter>Source Files\Finite State Machine\State</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\MatchAllSymbols.cpp">
+      <Filter>Source Files\Finite State Machine\Symbol</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\MatchListSymbols.cpp">
+      <Filter>Source Files\Finite State Machine\Symbol</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\MatchNotListSymbols.cpp">
+      <Filter>Source Files\Finite State Machine\Symbol</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\MatchNotSingleSymbol.cpp">
+      <Filter>Source Files\Finite State Machine\Symbol</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\MatchSingleSymbol.cpp">
+      <Filter>Source Files\Finite State Machine\Symbol</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\Transition.cpp">
+      <Filter>Source Files\Finite State Machine\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\FiniteStateMachine.cpp">
+      <Filter>Source Files\Finite State Machine</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\TransducerActionODynamic.cpp">
+      <Filter>Source Files\Finite State Transducer\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\TransducerActionOStatic.cpp">
+      <Filter>Source Files\Finite State Transducer\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\TransducerActionOStream.cpp">
+      <Filter>Source Files\Finite State Transducer\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\TransitionTransducer.cpp">
+      <Filter>Source Files\Finite State Transducer\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\FiniteStateTransducer.cpp">
+      <Filter>Source Files\Finite State Transducer</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\AutomatonCppCommentExtraction.cpp">
+      <Filter>Source Files\XtractL\Automata</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\AutomatonFileStatExtraction.cpp">
+      <Filter>Source Files\XtractL\Automata</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\TransducerActionOFileLineNum.cpp">
+      <Filter>Source Files\XtractL\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\TransducerActionOFileStat.cpp">
+      <Filter>Source Files\XtractL\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XtractL.cpp">
+      <Filter>Source Files\XtractL</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
