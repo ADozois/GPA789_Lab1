@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Unwanted project files
+*.suo
+*.db
+*.opendb
+*.doc
