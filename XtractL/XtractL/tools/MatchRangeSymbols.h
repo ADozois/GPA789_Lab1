@@ -1,8 +1,32 @@
+//! \file MatchRangeSymbols.h
+//!
+//! \brief Définition de la classe MatchRangeSymbols.
+//! \details Ce fichier fait partie du laboratoire 1 donné dans le cadre du cours 
+//! GPA789 : Analyse et conception orientées objet.
+//!
+//! \version 1.0
+//!
+//! \author Antoine Dozois
+//! \author	Guillaume Chabot-Nobert
+//!
+//! \date 2017
+//! \copyright Copyleft
 
 #ifndef MATCH_RANGE_SYMBOLS_H
 #define MATCH_RANGE_SYMBOLS_H
 
 #include "MatchSymbol.h"
+
+//! \brief		Classe permettant la verification qu'un caractere se trouve
+//!				dans un intervale.
+//! \details	Cette classe fait partie du module FSM (Finite State Machine).
+//!  
+//!
+//! \author		Antoine Dozois
+//! \author		Guillaume Chabot-Nobert
+//! \version	1.0
+//! \date		2017
+//! \copyright	Copyleft
 
 class MatchRangeSymbols : public MatchSymbol
 {
