@@ -17,3 +17,10 @@ en haut de sa: la transition il manque un "!" devant la condition
        _____
 ----->|Code|---->
        -----
+
+-----------------------------------------------------------------------------------------------------------
+
+Shémat:
+ - fleche de l'enfant au parent.
+ - ligne avec un point c'est quand une classe detient une autre classe (chien, point, ligne, milou)
+ - ligne simple: une classe utilise une autre classe.
