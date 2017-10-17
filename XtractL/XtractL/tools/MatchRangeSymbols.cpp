@@ -9,7 +9,7 @@ MatchRangeSymbols::MatchRangeSymbols(symbol_t fisrtSymbol, symbol_t lastSymbol):
 }
 
 bool MatchRangeSymbols::isMatching(symbol_t symbol) const {
-	if (symbol > mFirstSymbol && symbol < mLastSymbol) {
+	if (symbol >= mFirstSymbol && symbol <= mLastSymbol) {
 		return true;
 	}
 	return false;
