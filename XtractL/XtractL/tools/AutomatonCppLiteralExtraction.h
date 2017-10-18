@@ -95,10 +95,15 @@ private:
 	State * sCharacterEscapeChar;
 
 	// States reliés à l'état Entier
-	//TODO ajouter les etats pour les entiers
+	State * sNumericValue;
 
-	// States reliés à l'état Point Flottant\
-	//TODO ajouter les etats pour les flottants
+	// States reliés à l'état Point Flottant
+	State * sDirectFloat;
+	State * sFloatNumber;
+
+	// State reliés au déclaration
+	State * sDeclaration;
+	
 
 	// Transition de Code
 	Transition * tSlashEnter;
@@ -117,18 +122,37 @@ private:
 	Transition * tCppStyleCommentEscapeCharExit;
 	Transition * tCppStyleCommentExit;
 
-	TransitionCounter * tStringEnter;
-	//Transition * tStringChar;
-	Transition * tStringEscapeCharEnter;
-	Transition * tStringEscapeCharExit;
-	Transition * tStringExit;
+	TransitionTransducer * tStringEnter;
+	TransitionTransducer * tStringChar;
+	TransitionTransducer * tStringEscapeCharEnter;
+	TransitionTransducer * tStringEscapeCharExit;
+	TransitionTransducer * tStringExit;
 
-	TransitionCounter * tCharacterEnter;
-	//Transition * tCharacterChar;
-	Transition * tCharacterEscapeCharEnter;
-	Transition * tCharacterEscapeCharExit;
-	Transition * tCharacterExit;
+	TransitionTransducer * tCharacterEnter;
+	TransitionTransducer * tCharacterChar;
+	TransitionTransducer * tCharacterEscapeCharEnter;
+	TransitionTransducer * tCharacterEscapeCharExit;
+	TransitionTransducer * tCharacterExit;
 
+
+	//Transition relier au entier
+	TransitionTransducer *tNumericNumberEnter;
+	TransitionTransducer *tNumericNumberChar;
+	TransitionTransducer *tNumericNumberExit;
+
+	//Transition relié au floats
+	Transition *tDirectFloatEnter;
+	Transition *tDirectFloatExit;
+	TransitionTransducer *tFloatEnter;
+	TransitionTransducer *tFloatChar;
+	TransitionTransducer *tNumericFloatEnter;
+	TransitionTransducer *tFloatExit;
+	
+
+	//Transition relié a la déclaration
+	Transition *tDeclarationEnter;
+	Transition *tDeclarationChar;
+	Transition *tDeclarationExit;
 
 	// Private Method
 	void createStates(void);

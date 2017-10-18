@@ -7,6 +7,11 @@
 #include "MatchSingleSymbol.h"
 #include "MatchNotSingleSymbol.h"
 #include "MatchNotListSymbols.h"
+#include "MatchListRangeSymbol.h"
+
+#include "TransducerActionOStatic.h"
+#include "TransducerActionODynamic.h"
+#include "TransducerActionOFileLineNum.h"
 
 AutomatonCppLiteralExtraction::AutomatonCppLiteralExtraction() {
 }
@@ -25,7 +30,12 @@ void AutomatonCppLiteralExtraction::createStates(void) {
 	sStringEscapeChar = new State("String escape char", false);
 	sCharacter = new State("Character", false);
 	sCharacterEscapeChar = new State("Character escape char", false);
-	//TODO implementer les states pour Interger et Float
+
+	//New state implement
+	sNumericValue = new State("Numeric value char", false);
+	sDirectFloat = new State("Direct Float", false);
+	sFloatNumber = new State("Float number char", false);
+	sDeclaration = new State("Declaration char", false);
 }
 
 void AutomatonCppLiteralExtraction::createTransitions(AutomatonFileStatExtraction  const & obj) {
@@ -49,22 +59,29 @@ void AutomatonCppLiteralExtraction::createTransitions(AutomatonFileStatExtractio
 	tCppStyleCommentExit = new Transition("Cpp style comment character exit", new MatchSingleSymbol('\n'), *sCode);
 	
 	//String 
-	tStringEnter = new TransitionCounter("String enter", new MatchSingleSymbol('\"'), *sString);
-	tStringEscapeCharEnter = new Transition("String escape character", new MatchSingleSymbol('\\'), *sStringEscapeChar);
-	tStringEscapeCharExit = new Transition("String escape character", new MatchAllSymbols(), *sString);
-	tStringExit = new Transition("String exist", new MatchSingleSymbol('\"'), *sCode);
+	tStringEnter = new TransitionTransducer("String enter", new MatchSingleSymbol('\"'), new TransducerActionOFileLineNum(obj, "Ligne ", "\n\""), *sString);
+	tStringEscapeCharEnter = new TransitionTransducer("String escape character", new MatchSingleSymbol('\\'), new TransducerActionOStatic("\\"), *sStringEscapeChar);
+	tStringEscapeCharExit = new TransitionTransducer("String escape character", new MatchAllSymbols(), new TransducerActionODynamic(), *sString);
+	tStringExit = new TransitionTransducer("String exist", new MatchSingleSymbol('\"'), new TransducerActionODynamic(), *sCode);
+	tStringChar = new TransitionTransducer("String character", new MatchNotListSymbols({'\\','\"','\n'}), new TransducerActionODynamic(), *sString);
 
 	//Char
-	tCharacterEnter = new TransitionCounter("Char enter", new MatchSingleSymbol('\''), *sCharacter);
-	tCharacterEscapeCharEnter = new Transition("Char escape char enter", new MatchSingleSymbol('\\'), *sCharacterEscapeChar);
-	tCharacterEscapeCharExit = new Transition("Char escape char exit", new MatchAllSymbols(), *sCharacter);
-	tCharacterExit = new Transition("Char exit", new MatchListSymbols({ '\'','\n' }), *sCode);
+	tCharacterEnter = new TransitionTransducer("Char enter", new MatchSingleSymbol('\''), new TransducerActionOFileLineNum(obj, "Ligne ", "\n'"), *sCharacter);
+	tCharacterEscapeCharEnter = new TransitionTransducer("Char escape char enter", new MatchSingleSymbol('\\'), new TransducerActionOStatic("\\"), *sCharacterEscapeChar);
+	tCharacterEscapeCharExit = new TransitionTransducer("Char escape char exit", new MatchAllSymbols(), new TransducerActionODynamic(), *sCharacter);
+	tCharacterExit = new TransitionTransducer("Char exit", new MatchListSymbols({ '\'','\n' }), new TransducerActionODynamic(), *sCode);
+	tCharacterChar = new TransitionTransducer("Character char", new MatchNotListSymbols({ '\\','\'','\n' }), new TransducerActionODynamic(), *sCharacter);
 
 	//Interger
-	//TODO implementer les transitions
+	tNumericNumberEnter = new TransitionTransducer("Numeric Number enter", new MatchListRangeSymbol({ { '-' }, { '0','9' } }), new TransducerActionOFileLineNum(obj, "Ligne ", "\n"), *sNumericValue);
+	tNumericNumberChar = new TransitionTransducer("Numeric Number Char", new MatchListRangeSymbol({ {'0','9'}, {'a','f'},{'A','F'},{'x'},{'X'} }), new TransducerActionODynamic(), *sNumericValue);
+	//TODO tNumericNumberExit MatcNotListSymbol
+	tNumericFloatEnter = new TransitionTransducer("Numeric Float Enter", new MatchSingleSymbol('.'), new TransducerActionOStatic("."), *sFloatNumber);
 
 	//Float
-	//TODO implementer les transitions
+	tFloatEnter = new TransitionTransducer("Float enter", new MatchRangeSymbols('0', '9'), new TransducerActionOFileLineNum(obj, "Ligne ", "\n"), *sFloatNumber);
+	tFloatChar = new TransitionTransducer("Float char", new MatchListRangeSymbol({ {'0','9'},{'f'},{'F'} }), new TransducerActionODynamic(), *sFloatNumber);
+
 }
 
 void AutomatonCppLiteralExtraction::assignTransitions(void) {
