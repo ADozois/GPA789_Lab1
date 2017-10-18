@@ -3,19 +3,25 @@
 
 
 MatchRangeSymbols::MatchRangeSymbols(symbol_t fisrtSymbol, symbol_t lastSymbol):
-	mFirstSymbol{fisrtSymbol},
-	mLastSymbol{lastSymbol}
+	range{new RangeSymbol(fisrtSymbol, lastSymbol)}
 {
 }
 
+MatchRangeSymbols::MatchRangeSymbols(symbol_t symbol) :
+	range{ new RangeSymbol(symbol) }
+{
+}
+
+MatchRangeSymbols::~MatchRangeSymbols() {
+	delete range;
+}
+
+
 bool MatchRangeSymbols::isMatching(symbol_t symbol) const {
-	if (symbol >= mFirstSymbol && symbol <= mLastSymbol) {
-		return true;
-	}
-	return false;
+	return range->isMatching(symbol);
 }
 
 MatchSymbol* MatchRangeSymbols::clone(void) const {
-	return new MatchRangeSymbols(mFirstSymbol, mLastSymbol);
+	return new MatchRangeSymbols(range->FirstSymbol(), range->LastSymbol());
 }
 

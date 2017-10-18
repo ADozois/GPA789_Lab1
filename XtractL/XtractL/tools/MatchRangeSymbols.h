@@ -16,6 +16,7 @@
 #define MATCH_RANGE_SYMBOLS_H
 
 #include "MatchSymbol.h"
+#include "RangeSymbol.h"
 
 //! \brief		Classe permettant la verification qu'un caractere se trouve
 //!				dans un intervale.
@@ -35,8 +36,10 @@ public:
 	MatchRangeSymbols() = delete;
 	//! Seul constructeur accepter pour la contruction d'un MatchRangeSymbols
 	MatchRangeSymbols(symbol_t firstSymbol, symbol_t lastSymbol);
+	MatchRangeSymbols(symbol_t symbol);
+
 	//! Destructeur par default de MatchRangeSymbols
-	~MatchRangeSymbols() = default;
+	~MatchRangeSymbols();
 
 	//! La fonction d'acceptation verifie que le symbole se touve dans le
 	//!	range des membres de la class. Le range des symboles de référence 
@@ -48,8 +51,7 @@ public:
 	virtual	MatchSymbol* clone(void) const override;
 
 private:
-	symbol_t mFirstSymbol;
-	symbol_t mLastSymbol;
+	RangeSymbol * range;
 };
 
 #endif // !MATCH_RANGE_SYMBOLS_H
