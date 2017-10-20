@@ -13,7 +13,7 @@
 #include "TransducerActionODynamic.h"
 #include "TransducerActionOFileLineNum.h"
 
-AutomatonCppLiteralExtraction::AutomatonCppLiteralExtraction() {
+AutomatonCppLiteralExtraction::AutomatonCppLiteralExtraction(AutomatonFileStatExtraction const & automatonFileStateExtraction) {
 }
 
 AutomatonCppLiteralExtraction::~AutomatonCppLiteralExtraction() {
@@ -156,4 +156,12 @@ uint32_t AutomatonCppLiteralExtraction::stringCount(void) const {
 
 uint32_t AutomatonCppLiteralExtraction::characterCount(void) const {
 	return tCharacterEnter->count();
+}
+
+uint32_t AutomatonCppLiteralExtraction::integerCount(void) const {
+	throw("Not implemented TODO!!!!");
+}
+
+uint32_t AutomatonCppLiteralExtraction::floatCount(void) const {
+	throw("Not implemented TODO!!!!");
 }

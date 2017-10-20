@@ -50,7 +50,7 @@ class AutomatonFileStatExtraction;
 class AutomatonCppLiteralExtraction final: public FiniteStateTransducer
 {
 public:
-	AutomatonCppLiteralExtraction();
+	AutomatonCppLiteralExtraction(AutomatonFileStatExtraction const & automatonFileStateExtraction);
 	~AutomatonCppLiteralExtraction();
 
 	//! Retourne le nombre de commentaire style-C : 
@@ -65,6 +65,12 @@ public:
 	//! Retourne le nombre de caractères tel que 
 	//! défini en C/C++ : `'a'`
 	uint32_t characterCount(void) const;
+	//! Retourne le nombre d'entier tel que 
+	//! défini en C/C++ : `'a'`
+	uint32_t integerCount(void) const;
+	//! Retourne le nombre de point flottant tel que 
+	//! défini en C/C++ : `'a'`
+	uint32_t floatCount(void) const;
 
 	//TODO fonction de compteur pour la classe interger et float
 
