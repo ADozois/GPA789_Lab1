@@ -14,9 +14,11 @@
 #include "TransducerActionOFileLineNum.h"
 
 AutomatonCppLiteralExtraction::AutomatonCppLiteralExtraction(AutomatonFileStatExtraction const & automatonFileStateExtraction) {
-}
-
-AutomatonCppLiteralExtraction::~AutomatonCppLiteralExtraction() {
+	createStates();
+	createTransitions(automatonFileStateExtraction);
+	assignTransitions();
+	addStates();
+	assignInitialState();
 }
 
 void AutomatonCppLiteralExtraction::createStates(void) {
@@ -160,8 +162,10 @@ uint32_t AutomatonCppLiteralExtraction::characterCount(void) const {
 
 uint32_t AutomatonCppLiteralExtraction::integerCount(void) const {
 	throw("Not implemented TODO!!!!");
+	//TODO implementer une fois les transition definie (integer)
 }
 
 uint32_t AutomatonCppLiteralExtraction::floatCount(void) const {
 	throw("Not implemented TODO!!!!");
+	//TODO implementer une fois les transition definie (float)
 }

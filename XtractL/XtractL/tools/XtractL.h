@@ -14,7 +14,7 @@ class XtractL
 {
 public:
 	XtractL();
-	~XtractL();
+	~XtractL()=default;
 
 	//! Texte expiquant le synopsis de la fonction.
 	static const std::string CommandLineArgumentUsage;

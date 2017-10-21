@@ -9,9 +9,9 @@ const string XtractL::OpenOutputFileErrorString{ "Le nom du fichier de sortie es
 const string XtractL::ReadCharacterFromInputFileString{ "Impossible de lire un caractere." };
 const string XtractL::CommandLineArgumentUsage{ R"(
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Programme XtractC - Extraction de commentaires d'un fichier source du langage C++
+Programme XtractL - Extraction de literaux d'un fichier source du langage C++
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Usage : xtractc infile [outfile]
+Usage : xtractL infile [outfile]
   - infile : est le fichier source C/C++ (*.h, *.hpp, *.c, *.cpp)
   - outfile : est le fichier de sortie
               si non specifie, la sortie est redirigee vers la sortie standard
@@ -142,7 +142,7 @@ string XtractL::Exception::what() const
 {
 	stringstream strStream;
 
-	strStream << "Exception levee : XtractC::Exception" << endl
+	strStream << "Exception levee : XtractL::Exception" << endl
 		<< "  - Contexte : " << mContext << endl
 		<< "  - Cause possible : " << mCause << endl;
 

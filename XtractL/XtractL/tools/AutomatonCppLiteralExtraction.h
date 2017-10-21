@@ -51,7 +51,7 @@ class AutomatonCppLiteralExtraction final: public FiniteStateTransducer
 {
 public:
 	AutomatonCppLiteralExtraction(AutomatonFileStatExtraction const & automatonFileStateExtraction);
-	~AutomatonCppLiteralExtraction();
+	~AutomatonCppLiteralExtraction()=default;
 
 	//! Retourne le nombre de commentaire style-C : 
 	//! `/* commentaire */`
@@ -71,10 +71,7 @@ public:
 	//! Retourne le nombre de point flottant tel que 
 	//! défini en C/C++ : `'a'`
 	uint32_t floatCount(void) const;
-
-	//TODO fonction de compteur pour la classe interger et float
-
-
+	
 private:
 
 	// States reliés à l'état Code
