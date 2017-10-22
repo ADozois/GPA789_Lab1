@@ -1,3 +1,5 @@
+235;
+int ajhjhfsd=153465451; 
 /* * * * * * * * * * * * * *
  * Ce fichier contient une liste de tests visant a confirmer
  * la validation de l'extraction de commentaires provenant
