@@ -22,9 +22,8 @@ bool MatchListRangeSymbol::isMatching(symbol_t symbol) const
 		{
 			return true;
 		}
-		return false;
 	}
-
+	return false;
 }
 
 MatchSymbol* MatchListRangeSymbol::clone() const
