@@ -78,13 +78,13 @@ void AutomatonCppLiteralExtraction::createTransitions(AutomatonFileStatExtractio
 	//Interger
 	tNumericNumberEnter = new TransitionTransducer("Numeric Number enter", new MatchListRangeSymbol({ { '-' },{ '0','9' } }), new TransducerActionOFileLineNum(obj, "Ligne ", "\n"), *sNumericValue);
 	tNumericNumberChar = new TransitionTransducer("Numeric Number Char", new MatchListRangeSymbol({ { '0','9' },{ 'a','f' },{ 'A','F' },{ 'x' },{ 'X' } }), new TransducerActionODynamic(std::string(),true,std::string(),false,std::string()), *sNumericValue);
-	tNumericNumberExit = new TransitionTransducer("Numeric Number exit", new MatchNotListRangeSymbol({ { '0','9' },{ 'a','f' },{ 'A','F' } }), new TransducerActionODynamic(std::string(), true, std::string(), false, "\n\n"), *sCode);
-	tNumericFloatEnter = new TransitionTransducer("Numeric Float Enter", new MatchSingleSymbol('.'), new TransducerActionOStatic("."), *sFloatNumber);
+	tNumericNumberExit = new TransitionTransducer("Numeric Number exit", new MatchNotListRangeSymbol({ { '0','9' },{ 'a','f' },{ 'A','F' },{'.'} }), new TransducerActionODynamic(std::string(), true, std::string(), false, "\n\n"), *sCode);
+	tNumericFloatEnter = new TransitionTransducer("Numeric Float Enter", new MatchSingleSymbol('.'), new TransducerActionODynamic(std::string(), true, std::string(), false, std::string()), *sFloatNumber);
 
 	//Float
 	tFloatEnter = new TransitionTransducer("Float enter", new MatchRangeSymbols('0', '9'), new TransducerActionOFileLineNum(obj, "Ligne ", "\n."), *sFloatNumber);
-	tFloatChar = new TransitionTransducer("Float char", new MatchListRangeSymbol({ { '0','9' },{ 'f' },{ 'F' } }), new TransducerActionODynamic(), *sFloatNumber);
-	tFloatExit = new TransitionTransducer("Float exit", new MatchNotListRangeSymbol({ { '0','9' },{ 'f' },{ 'F' } }), new TransducerActionOStatic("\n\n"), *sCode);
+	tFloatChar = new TransitionTransducer("Float char", new MatchListRangeSymbol({ { '0','9' },{ 'f' },{ 'F' } }), new TransducerActionODynamic(std::string(), true, std::string(), false, std::string()), *sFloatNumber);
+	tFloatExit = new TransitionTransducer("Float exit", new MatchNotListRangeSymbol({ { '0','9' },{ 'f' },{ 'F' } }), new TransducerActionODynamic(std::string(), true, std::string(), false, "\n\n"), *sCode);
 	tDirectFloatEnter = new Transition("Direct Float enter", new MatchSingleSymbol('.'), *sDirectFloat);
 	tDirectFloatExit = new Transition("Direct float exit", new MatchNotListRangeSymbol({ { '0','9' } }), *sCode);
 

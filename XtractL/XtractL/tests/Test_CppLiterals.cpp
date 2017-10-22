@@ -23,8 +23,8 @@ multi ligne\
 'c' un caractere
 */
 /*en debut de ligne*/ int a = 0;
-int b /*en milieu de ligne*/ = 0;
-int c = 0; /* en fin de ligne*/
+int b /*en milieu de ligne*/ = 1;
+int c = 2; /* en fin de ligne*/
 
 /* Autres tests */
 /**************************************************/
@@ -45,8 +45,8 @@ et non pas a la ligne precedente.
 // 2e serie : Tests des commentaires de style C++
 
 // Commentaires sur une ligne complete
-int a1{ 0 }; // Commentaire en fin de ligne
-int a2{ 0 }; // Commentaire en fin de ligne multi ligne\
+int a1{ 3 }; // Commentaire en fin de ligne
+int a2{ 4 }; // Commentaire en fin de ligne multi ligne\
 qui va jusqu'ici\
 et meme plus loin!
 // Commentaire multi-lignes encore une fois \
