@@ -111,7 +111,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="tools\AutomatonCppCommentExtraction.h" />
     <ClInclude Include="tools\AutomatonCppLiteralExtraction.h" />
     <ClInclude Include="tools\AutomatonFileStatExtraction.h" />
     <ClInclude Include="tools\BehavioralMachine.h" />
@@ -144,7 +143,6 @@
     <ClInclude Include="tools\XtractL.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tools\AutomatonCppCommentExtraction.cpp" />
     <ClCompile Include="tools\AutomatonCppLiteralExtraction.cpp" />
     <ClCompile Include="tools\AutomatonFileStatExtraction.cpp" />
     <ClCompile Include="tools\BehavioralMachine.cpp" />

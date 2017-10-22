@@ -156,9 +156,6 @@
     <ClInclude Include="tools\FiniteStateTransducer.h">
       <Filter>Header Files\Finite State Transducer</Filter>
     </ClInclude>
-    <ClInclude Include="tools\AutomatonCppCommentExtraction.h">
-      <Filter>Header Files\XtractL\Automata</Filter>
-    </ClInclude>
     <ClInclude Include="tools\AutomatonFileStatExtraction.h">
       <Filter>Header Files\XtractL\Automata</Filter>
     </ClInclude>
@@ -241,9 +238,6 @@
     </ClCompile>
     <ClCompile Include="tools\FiniteStateTransducer.cpp">
       <Filter>Source Files\Finite State Transducer</Filter>
-    </ClCompile>
-    <ClCompile Include="tools\AutomatonCppCommentExtraction.cpp">
-      <Filter>Source Files\XtractL\Automata</Filter>
     </ClCompile>
     <ClCompile Include="tools\AutomatonFileStatExtraction.cpp">
       <Filter>Source Files\XtractL\Automata</Filter>
