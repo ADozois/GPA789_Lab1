@@ -65,14 +65,14 @@ void AutomatonCppLiteralExtraction::createTransitions(AutomatonFileStatExtractio
 	tStringEnter = new TransitionTransducer("String enter", new MatchSingleSymbol('\"'), new TransducerActionOFileLineNum(obj, "Ligne ", "\n\""), *sString);
 	tStringEscapeCharEnter = new TransitionTransducer("String escape character", new MatchSingleSymbol('\\'), new TransducerActionOStatic("\\"), *sStringEscapeChar);
 	tStringEscapeCharExit = new TransitionTransducer("String escape character", new MatchAllSymbols(), new TransducerActionODynamic(), *sString);
-	tStringExit = new TransitionTransducer("String exist", new MatchSingleSymbol('\"'), new TransducerActionODynamic(), *sCode);
+	tStringExit = new TransitionTransducer("String exist", new MatchSingleSymbol('\"'), new TransducerActionOStatic("\"\n"), *sCode);
 	tStringChar = new TransitionTransducer("String character", new MatchNotListSymbols({ '\\','\"','\n' }), new TransducerActionODynamic(), *sString);
 
 	//Char
 	tCharacterEnter = new TransitionTransducer("Char enter", new MatchSingleSymbol('\''), new TransducerActionOFileLineNum(obj, "Ligne ", "\n'"), *sCharacter);
 	tCharacterEscapeCharEnter = new TransitionTransducer("Char escape char enter", new MatchSingleSymbol('\\'), new TransducerActionOStatic("\\"), *sCharacterEscapeChar);
 	tCharacterEscapeCharExit = new TransitionTransducer("Char escape char exit", new MatchAllSymbols(), new TransducerActionODynamic(), *sCharacter);
-	tCharacterExit = new TransitionTransducer("Char exit", new MatchListSymbols({ '\'','\n' }), new TransducerActionODynamic(), *sCode);
+	tCharacterExit = new TransitionTransducer("Char exit", new MatchListSymbols({ '\'','\n' }), new TransducerActionOStatic("\'\n"), *sCode);
 	tCharacterChar = new TransitionTransducer("Character char", new MatchNotListSymbols({ '\\','\'','\n' }), new TransducerActionODynamic(), *sCharacter);
 
 	//Interger
@@ -96,55 +96,69 @@ void AutomatonCppLiteralExtraction::createTransitions(AutomatonFileStatExtractio
 }
 
 void AutomatonCppLiteralExtraction::assignTransitions(void) {
+
+	// sCode
 	sCode->addTransition(tSlashEnter);
 	sCode->addTransition(tStringEnter);
 	sCode->addTransition(tCharacterEnter);
-
 	sCode->addTransition(tNumericNumberEnter);
 	sCode->addTransition(tDirectFloatEnter);
 	sCode->addTransition(tDeclarationEnter);
 
-
+	// sSlash
 	sSlash->addTransition(tCStyleCommentEnter);
 	sSlash->addTransition(tCppStyleCommentEnter);
 	sSlash->addTransition(tSlashExit);
 
+	// sCStyleComment
 	sCStyleComment->addTransition(tCStyleCommentChar);
 	sCStyleComment->addTransition(tCStyleCommentStarEnter);
 
+	// sCStyleCommentStar
 	sCStyleCommentStar->addTransition(tCStyleCommentExit);
 	sCStyleCommentStar->addTransition(tCStyleCommentStarAgain);
 	sCStyleCommentStar->addTransition(tCStyleCommentStarExit);
 
+	// sCppStyleComment
 	sCppStyleComment->addTransition(tCppStyleCommentChar);
 	sCppStyleComment->addTransition(tCppStyleCommentEscapeCharEnter);
 	sCppStyleComment->addTransition(tCppStyleCommentExit);
 
+	// sCppStyleCommentEscapeChar
 	sCppStyleCommentEscapeChar->addTransition(tCppStyleCommentEscapeCharExit);
 
+	// sString
 	sString->addTransition(tStringEscapeCharEnter);
 	sString->addTransition(tStringExit);
-
+	sString->addTransition(tStringChar);
+	
+	// sStringEscapeChar
 	sStringEscapeChar->addTransition(tStringEscapeCharExit);
 
+	// sCharacter
 	sCharacter->addTransition(tCharacterEscapeCharEnter);
 	sCharacter->addTransition(tCharacterExit);
+	sCharacter->addTransition(tCharacterChar);
 
+	// sCharacterEscapeChar
 	sCharacterEscapeChar->addTransition(tCharacterEscapeCharExit);
 
-	//Interger
+	// sNumericValue
 	sNumericValue->addTransition(tNumericNumberExit);
 	sNumericValue->addTransition(tNumericFloatEnter);
+	sNumericValue->addTransition(tNumericNumberChar);
 
-	//Direct float
+	// sDirect float
 	sDirectFloat->addTransition(tDirectFloatExit);
 	sDirectFloat->addTransition(tFloatEnter);
 
-	//Float
+	// sFloat
 	sFloatNumber->addTransition(tFloatExit);
+	sFloatNumber->addTransition(tFloatChar);
 
-	//Declaration
+	// sDeclaration
 	sDeclaration->addTransition(tDeclarationExit);
+	sDeclaration->addTransition(tDeclarationChar);
 }
 
 void AutomatonCppLiteralExtraction::addStates(void) {

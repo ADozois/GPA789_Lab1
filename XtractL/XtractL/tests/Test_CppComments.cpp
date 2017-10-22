@@ -1,5 +1,4 @@
-0.25
-/* * * * * * * * * * * * * *
+/* * * * * * * * * * * * * * 
  * Ce fichier contient une liste de tests visant a confirmer
  * la validation de l'extraction de commentaires provenant
  * d'un fichier C++ (c/h - cpp/hpp).
