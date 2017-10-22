@@ -8,6 +8,7 @@
 #include "MatchNotSingleSymbol.h"
 #include "MatchNotListSymbols.h"
 #include "MatchListRangeSymbol.h"
+#include "MatchNotListRangeSymbol.h"
 
 #include "TransducerActionOStatic.h"
 #include "TransducerActionODynamic.h"
@@ -44,7 +45,7 @@ void AutomatonCppLiteralExtraction::createTransitions(AutomatonFileStatExtractio
 	// Code et Slash
 	tSlashEnter = new Transition("Slash enter", new MatchSingleSymbol('/'), *sSlash);
 	tSlashExit = new Transition("Slash exit", new MatchListSymbols({ '*','/' }), *sCode);
-	
+
 	//C comment style
 	tCStyleCommentEnter = new TransitionCounter("C style comment enter", new MatchSingleSymbol('*'), *sCStyleComment);
 	tCStyleCommentChar = new Transition("C style comment char", new MatchNotSingleSymbol('*'), *sCStyleComment);
@@ -52,20 +53,20 @@ void AutomatonCppLiteralExtraction::createTransitions(AutomatonFileStatExtractio
 	tCStyleCommentStarAgain = new Transition("C star comment again", new MatchSingleSymbol('*'), *sCStyleCommentStar);
 	tCStyleCommentStarExit = new Transition("C star comment exit", new MatchNotListSymbols({ '*','/' }), *sCStyleComment);
 	tCStyleCommentExit = new Transition("C style commnent exit", new MatchSingleSymbol('/'), *sCode);
-	
+
 	//C++ comment style
 	tCppStyleCommentEnter = new TransitionCounter("Cpp style comment enter", new MatchSingleSymbol('/'), *sCppStyleComment);
 	tCppStyleCommentChar = new Transition("Cpp style comment char", new MatchNotListSymbols({ '\\', '\n' }), *sCppStyleComment);
 	tCppStyleCommentEscapeCharEnter = new Transition("Cpp style comment escape character enter", new MatchSingleSymbol('\\'), *sCppStyleCommentEscapeChar);
 	tCppStyleCommentEscapeCharExit = new Transition("Cpp style comment escape character exit", new MatchAllSymbols(), *sCppStyleComment);
 	tCppStyleCommentExit = new Transition("Cpp style comment character exit", new MatchSingleSymbol('\n'), *sCode);
-	
+
 	//String 
 	tStringEnter = new TransitionTransducer("String enter", new MatchSingleSymbol('\"'), new TransducerActionOFileLineNum(obj, "Ligne ", "\n\""), *sString);
 	tStringEscapeCharEnter = new TransitionTransducer("String escape character", new MatchSingleSymbol('\\'), new TransducerActionOStatic("\\"), *sStringEscapeChar);
 	tStringEscapeCharExit = new TransitionTransducer("String escape character", new MatchAllSymbols(), new TransducerActionODynamic(), *sString);
 	tStringExit = new TransitionTransducer("String exist", new MatchSingleSymbol('\"'), new TransducerActionODynamic(), *sCode);
-	tStringChar = new TransitionTransducer("String character", new MatchNotListSymbols({'\\','\"','\n'}), new TransducerActionODynamic(), *sString);
+	tStringChar = new TransitionTransducer("String character", new MatchNotListSymbols({ '\\','\"','\n' }), new TransducerActionODynamic(), *sString);
 
 	//Char
 	tCharacterEnter = new TransitionTransducer("Char enter", new MatchSingleSymbol('\''), new TransducerActionOFileLineNum(obj, "Ligne ", "\n'"), *sCharacter);
@@ -75,14 +76,22 @@ void AutomatonCppLiteralExtraction::createTransitions(AutomatonFileStatExtractio
 	tCharacterChar = new TransitionTransducer("Character char", new MatchNotListSymbols({ '\\','\'','\n' }), new TransducerActionODynamic(), *sCharacter);
 
 	//Interger
-	tNumericNumberEnter = new TransitionTransducer("Numeric Number enter", new MatchListRangeSymbol({ { '-' }, { '0','9' } }), new TransducerActionOFileLineNum(obj, "Ligne ", "\n"), *sNumericValue);
-	tNumericNumberChar = new TransitionTransducer("Numeric Number Char", new MatchListRangeSymbol({ {'0','9'}, {'a','f'},{'A','F'},{'x'},{'X'} }), new TransducerActionODynamic(), *sNumericValue);
-	//TODO tNumericNumberExit MatcNotListSymbol
+	tNumericNumberEnter = new TransitionTransducer("Numeric Number enter", new MatchListRangeSymbol({ { '-' },{ '0','9' } }), new TransducerActionOFileLineNum(obj, "Ligne ", "\n"), *sNumericValue);
+	tNumericNumberChar = new TransitionTransducer("Numeric Number Char", new MatchListRangeSymbol({ { '0','9' },{ 'a','f' },{ 'A','F' },{ 'x' },{ 'X' } }), new TransducerActionODynamic(), *sNumericValue);
+	tNumericNumberExit = new TransitionTransducer("Numeric Number exit", new MatchNotListRangeSymbol({ { '0','9' },{ 'a','f' },{ 'A','F' } }), new TransducerActionOStatic("\n\n"), *sCode);
 	tNumericFloatEnter = new TransitionTransducer("Numeric Float Enter", new MatchSingleSymbol('.'), new TransducerActionOStatic("."), *sFloatNumber);
 
 	//Float
 	tFloatEnter = new TransitionTransducer("Float enter", new MatchRangeSymbols('0', '9'), new TransducerActionOFileLineNum(obj, "Ligne ", "\n"), *sFloatNumber);
-	tFloatChar = new TransitionTransducer("Float char", new MatchListRangeSymbol({ {'0','9'},{'f'},{'F'} }), new TransducerActionODynamic(), *sFloatNumber);
+	tFloatChar = new TransitionTransducer("Float char", new MatchListRangeSymbol({ { '0','9' },{ 'f' },{ 'F' } }), new TransducerActionODynamic(), *sFloatNumber);
+	tFloatExit = new TransitionTransducer("Float exit", new MatchNotListRangeSymbol({ { '0','9' },{ 'f' },{ 'F' } }), new TransducerActionOStatic("\n\n"), *sCode);
+	tDirectFloatEnter = new Transition("Direct Float enter", new MatchSingleSymbol('.'), *sDirectFloat);
+	tDirectFloatExit = new Transition("Direct float exit", new MatchNotListRangeSymbol({ { '0','9' } }), *sCode);
+
+	//Declaration
+	tDeclarationEnter = new Transition("Declaration enter", new MatchListRangeSymbol({ { '_' },{ 'A','Z' },{ 'a','z' } }), *sDeclaration);
+	tDeclarationChar = new Transition("Declaration char", new MatchListRangeSymbol({ { '_' },{ 'A','Z' },{ 'a','z' },{ '0','9' } }), *sDeclaration);
+	tDeclarationExit = new Transition("Declaration exit", new MatchNotListRangeSymbol({ { '_' },{ 'A','Z' },{ 'a','z' },{ '0','9' } }), *sCode);
 
 }
 
@@ -90,6 +99,11 @@ void AutomatonCppLiteralExtraction::assignTransitions(void) {
 	sCode->addTransition(tSlashEnter);
 	sCode->addTransition(tStringEnter);
 	sCode->addTransition(tCharacterEnter);
+
+	sCode->addTransition(tNumericNumberEnter);
+	sCode->addTransition(tDirectFloatEnter);
+	sCode->addTransition(tDeclarationEnter);
+
 
 	sSlash->addTransition(tCStyleCommentEnter);
 	sSlash->addTransition(tCppStyleCommentEnter);
@@ -119,10 +133,18 @@ void AutomatonCppLiteralExtraction::assignTransitions(void) {
 	sCharacterEscapeChar->addTransition(tCharacterEscapeCharExit);
 
 	//Interger
-	//TODO addTransition interger
+	sNumericValue->addTransition(tNumericNumberExit);
+	sNumericValue->addTransition(tNumericFloatEnter);
+
+	//Direct float
+	sDirectFloat->addTransition(tDirectFloatExit);
+	sDirectFloat->addTransition(tFloatEnter);
 
 	//Float
-	//TODO addTransition float
+	sFloatNumber->addTransition(tFloatExit);
+
+	//Declaration
+	sDeclaration->addTransition(tDeclarationExit);
 }
 
 void AutomatonCppLiteralExtraction::addStates(void) {
@@ -136,7 +158,10 @@ void AutomatonCppLiteralExtraction::addStates(void) {
 	addState(sStringEscapeChar);
 	addState(sCharacter);
 	addState(sCharacterEscapeChar);
-	//TODO Pour interger et float
+	addState(sNumericValue);
+	addState(sDirectFloat);
+	addState(sFloatNumber);
+	addState(sDeclaration);
 }
 
 void AutomatonCppLiteralExtraction::assignInitialState(void) {
@@ -161,11 +186,9 @@ uint32_t AutomatonCppLiteralExtraction::characterCount(void) const {
 }
 
 uint32_t AutomatonCppLiteralExtraction::integerCount(void) const {
-	throw("Not implemented TODO!!!!");
-	//TODO implementer une fois les transition definie (integer)
+	return tNumericNumberExit->count();
 }
 
 uint32_t AutomatonCppLiteralExtraction::floatCount(void) const {
-	throw("Not implemented TODO!!!!");
-	//TODO implementer une fois les transition definie (float)
+	return tFloatEnter->count() + tNumericFloatEnter->count();
 }

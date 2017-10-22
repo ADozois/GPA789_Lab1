@@ -112,6 +112,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="tools\AutomatonCppCommentExtraction.h" />
+    <ClInclude Include="tools\AutomatonCppLiteralExtraction.h" />
     <ClInclude Include="tools\AutomatonFileStatExtraction.h" />
     <ClInclude Include="tools\BehavioralMachine.h" />
     <ClInclude Include="tools\BehavioralState.h" />
@@ -119,11 +120,15 @@
     <ClInclude Include="tools\FiniteStateMachine.h" />
     <ClInclude Include="tools\FiniteStateTransducer.h" />
     <ClInclude Include="tools\MatchAllSymbols.h" />
+    <ClInclude Include="tools\MatchListRangeSymbol.h" />
     <ClInclude Include="tools\MatchListSymbols.h" />
+    <ClInclude Include="tools\MatchNotListRangeSymbol.h" />
     <ClInclude Include="tools\MatchNotListSymbols.h" />
     <ClInclude Include="tools\MatchNotSingleSymbol.h" />
+    <ClInclude Include="tools\MatchRangeSymbols.h" />
     <ClInclude Include="tools\MatchSingleSymbol.h" />
     <ClInclude Include="tools\MatchSymbol.h" />
+    <ClInclude Include="tools\RangeSymbol.h" />
     <ClInclude Include="tools\State.h" />
     <ClInclude Include="tools\StateCounter.h" />
     <ClInclude Include="tools\Symbol.h" />
@@ -136,10 +141,11 @@
     <ClInclude Include="tools\Transition.h" />
     <ClInclude Include="tools\TransitionCounter.h" />
     <ClInclude Include="tools\TransitionTransducer.h" />
-    <ClInclude Include="XtractL.h" />
+    <ClInclude Include="tools\XtractL.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tools\AutomatonCppCommentExtraction.cpp" />
+    <ClCompile Include="tools\AutomatonCppLiteralExtraction.cpp" />
     <ClCompile Include="tools\AutomatonFileStatExtraction.cpp" />
     <ClCompile Include="tools\BehavioralMachine.cpp" />
     <ClCompile Include="tools\BehavioralState.cpp" />
@@ -148,10 +154,14 @@
     <ClCompile Include="tools\FiniteStateTransducer.cpp" />
     <ClCompile Include="tools\main.cpp" />
     <ClCompile Include="tools\MatchAllSymbols.cpp" />
+    <ClCompile Include="tools\MatchListRangeSymbol.cpp" />
     <ClCompile Include="tools\MatchListSymbols.cpp" />
+    <ClCompile Include="tools\MatchNotListRangeSymbol.cpp" />
     <ClCompile Include="tools\MatchNotListSymbols.cpp" />
     <ClCompile Include="tools\MatchNotSingleSymbol.cpp" />
+    <ClCompile Include="tools\MatchRangeSymbols.cpp" />
     <ClCompile Include="tools\MatchSingleSymbol.cpp" />
+    <ClCompile Include="tools\RangeSymbol.cpp" />
     <ClCompile Include="tools\State.cpp" />
     <ClCompile Include="tools\StateCounter.cpp" />
     <ClCompile Include="tools\TransducerActionODynamic.cpp" />
@@ -162,7 +172,7 @@
     <ClCompile Include="tools\Transition.cpp" />
     <ClCompile Include="tools\TransitionCounter.cpp" />
     <ClCompile Include="tools\TransitionTransducer.cpp" />
-    <ClCompile Include="XtractL.cpp" />
+    <ClCompile Include="tools\XtractL.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

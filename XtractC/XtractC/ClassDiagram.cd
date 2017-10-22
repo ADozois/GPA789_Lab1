@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AutomatonCppCommentExtraction" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>FQAopBAMAIBKE2QAAAAAgABEYgCABIkAASAgggJoAAA=</HashCode>
+      <FileName>tools\AutomatonCppCommentExtraction.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiniteStateTransducer" Collapsed="true">
+    <Position X="9" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAEAAAAAAAAAAAAAAAAAAAAAAgAAACAAA=</HashCode>
+      <FileName>tools\FiniteStateTransducer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehavioralMachine" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAoAAAIGAAAAAAgBAAABCAgAAAAQAA=</HashCode>
+      <FileName>tools\BehavioralMachine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FiniteStateMachine" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>RAAIgBAACAAQAEBgAABIBAgAAACgAAAAAAIgAAAAAAA=</HashCode>
+      <FileName>tools\FiniteStateMachine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Transition" Collapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAABAAAAAAIABEAABAAAiAAAAAAAA=</HashCode>
+      <FileName>tools\Transition.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatchAllSymbols" Collapsed="true">
+    <Position X="3.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAEACAAAAEAAAAAA=</HashCode>
+      <FileName>tools\MatchAllSymbols.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatchListSymbols" Collapsed="true">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQQAAAAAAAAAAACAAAIEAAAAAA=</HashCode>
+      <FileName>tools\MatchListSymbols.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatchNotListSymbols" Collapsed="true">
+    <Position X="0.75" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAMAAAAAA=</HashCode>
+      <FileName>tools\MatchNotListSymbols.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatchNotSingleSymbol" Collapsed="true">
+    <Position X="5.5" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACEAAAgAA=</HashCode>
+      <FileName>tools\MatchNotSingleSymbol.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatchSingleSymbol" Collapsed="true">
+    <Position X="5.5" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACEAAAAAAAAAAAAAAAAAAAAACAAAAEAAAQAA=</HashCode>
+      <FileName>tools\MatchSingleSymbol.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatchSymbol" Collapsed="true">
+    <Position X="3.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAABAAAAAAAAAAAAAAAACAAAAEAAAAAA=</HashCode>
+      <FileName>tools\MatchSymbol.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransducerAction" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAIAAAAAAAAAIAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>tools\TransducerAction.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransducerActionODynamic" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AgAQAACEgACQAAgAAAAAAhIAAACCAgAAAkAAEBAAIAI=</HashCode>
+      <FileName>tools\TransducerActionODynamic.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransducerActionOStatic" Collapsed="true">
+    <Position X="3.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAoAAAEABAAAgAAAAIAAAIAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>tools\TransducerActionOStatic.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransducerActionOStream" Collapsed="true">
+    <Position X="2" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAEAAAAAAAAAAAAAAAEAAAAAAAAABAAAA=</HashCode>
+      <FileName>tools\TransducerActionOStream.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransitionTransducer" Collapsed="true">
+    <Position X="0.5" Y="12.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAEAAAAAAAAAAgAAAIgAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>tools\TransitionTransducer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutomatonFileStatExtraction" Collapsed="true">
+    <Position X="12" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAACACAAAAAEAAAAEAIAAAAEAAAEAAQwggAAAAA=</HashCode>
+      <FileName>tools\AutomatonFileStatExtraction.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehavioralState" Collapsed="true">
+    <Position X="3.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAJAAAAAAAAAAAAAAIAAAAAAMA=</HashCode>
+      <FileName>tools\BehavioralState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateCounter" Collapsed="true">
+    <Position X="3.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAEAEAAAAACCAgCABAAAAAAAAAAAABAIAAACAAIA=</HashCode>
+      <FileName>tools\StateCounter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehavioralTransition" Collapsed="true">
+    <Position X="0.5" Y="9.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAIAQAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>tools\BehavioralTransition.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransitionCounter" Collapsed="true">
+    <Position X="0.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAAAIBAAAAAIAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>tools\TransitionCounter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="State" Collapsed="true">
+    <Position X="3.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAABAAAAAAAwAFAAAAAAgiBBAAAAg=</HashCode>
+      <FileName>tools\State.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

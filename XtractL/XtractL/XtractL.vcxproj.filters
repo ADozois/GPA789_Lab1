@@ -168,7 +168,22 @@
     <ClInclude Include="tools\TransducerActionOFileStat.h">
       <Filter>Header Files\XtractL\Transition</Filter>
     </ClInclude>
-    <ClInclude Include="XtractL.h">
+    <ClInclude Include="tools\AutomatonCppLiteralExtraction.h">
+      <Filter>Header Files\XtractL\Automata</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\MatchRangeSymbols.h">
+      <Filter>Header Files\Finite State Machine\Symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\MatchListRangeSymbol.h">
+      <Filter>Header Files\Finite State Machine\Symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\RangeSymbol.h">
+      <Filter>Header Files\Finite State Machine\Symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\MatchNotListRangeSymbol.h">
+      <Filter>Header Files\Finite State Machine\Symbol</Filter>
+    </ClInclude>
+    <ClInclude Include="tools\XtractL.h">
       <Filter>Header Files\XtractL</Filter>
     </ClInclude>
   </ItemGroup>
@@ -242,7 +257,22 @@
     <ClCompile Include="tools\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="XtractL.cpp">
+    <ClCompile Include="tools\AutomatonCppLiteralExtraction.cpp">
+      <Filter>Source Files\XtractL\Automata</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\MatchRangeSymbols.cpp">
+      <Filter>Source Files\Finite State Machine\Symbol</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\MatchListRangeSymbol.cpp">
+      <Filter>Source Files\Finite State Machine\Symbol</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\RangeSymbol.cpp">
+      <Filter>Source Files\Finite State Machine\Symbol</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\MatchNotListRangeSymbol.cpp">
+      <Filter>Source Files\Finite State Machine\Symbol</Filter>
+    </ClCompile>
+    <ClCompile Include="tools\XtractL.cpp">
       <Filter>Source Files\XtractL</Filter>
     </ClCompile>
   </ItemGroup>
