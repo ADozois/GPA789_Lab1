@@ -123,7 +123,7 @@ void XtractL::writeStats()
 	*mOStream << "Number of float: " << mCppLiteralExtraction.floatCount() << endl;
 	*mOStream << endl << "Accepting state :" << endl;
 	*mOStream << "Statistics extraction returned with success : " << boolalpha << mFileStatExctractionAccepted << endl;
-	*mOStream << "C++ comments extraction returned with success : " << boolalpha << mCppLiteralExtractionAccepted << endl;
+	*mOStream << "Literal extraction returned with success : " << boolalpha << mCppLiteralExtractionAccepted << endl;
 	*mOStream << endl;
 }
 
